@@ -208,20 +208,20 @@ const IndexPage = () =>  (
         <div className = "all-items-list show-on-mobile">
           <div className = "item-container-list">
             <div className = "item-list">
-              <span className = "item1"/>              
+              <span className = "item1-list"/>              
             </div>
             <div className = "item-list_info-container">
               <div className = "item-list_name"> Кардиган </div>
               <div className = "item-list__master-name"> Sewing company </div>
             </div>
+            <div className = "item-list__cost2">1200 руб</div>
               <div className = "item-list__payment-container">
-                <div className = "item-list__cost">
-                  <div style={{width: "100px", position: "absolute", right: "0px", top: "0px"}}>1200 руб</div>
-                  <div className="item-list__basketblock">
-                    <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                    <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                  </div>
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
                 </div>
+              </div>
               </div>
           </div>
           <div className = "item-container-list">

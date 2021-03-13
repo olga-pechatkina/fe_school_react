@@ -46,23 +46,23 @@ code {
 
 .button_fav{
   color: inherit;
-    text-align: center;
-    user-select: none;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    cursor: pointer;
-    align-items: center;
-    padding: 0px;
-    border-width: 0px;
-    border-style: initial;
-    border-color: initial;
-    border-image: initial;
-    background: 0px 0px;
-    /*font: inherit inherit inherit inherit inherit inherit inherit inherit;
-    text-decoration: none;*/
-    outline: none;
-    overflow: visible;
+  text-align: center;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  padding: 0px;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  background: 0px 0px;
+  /*font: inherit inherit inherit inherit inherit inherit inherit inherit;
+  text-decoration: none;*/
+  outline: none;
+  overflow: visible;
 }
 
 .fav_icon{
@@ -126,10 +126,10 @@ code {
 }
 
 .header__nav-block{
-display: flex;
-margin-right: 17px;
-align-items: center;
-margin-right: 15px;
+  display: flex;
+  margin-right: 17px;
+  align-items: center;
+  margin-right: 15px;
 }
 
 .header__nav-list {
@@ -279,6 +279,18 @@ margin-right: 15px;
     max-width: 1280px;*/
 }
 
+.item1-list {
+  background-image: url(./images/item1.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-position: center;
+  display: flex;
+  width: 100%;
+  /*min-width: 320px;
+  max-width: 1280px;*/
+}
+
 .item-block__name {
   /*display: block;*/
     font-size: 14px;
@@ -371,16 +383,16 @@ margin-right: 15px;
   flex-direction: row;
   width: 100%;
   height: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .item-list{
-  flex-basis: 25%;
+  flex-basis: 15%;
 }
 
 .item-list_info-container {
-    padding: 25px;
-    flex-basis: 45%;
+    padding: 5px;
+    flex-basis: 30%;
 }
 
 .item-list_name {
@@ -407,7 +419,6 @@ margin-right: 15px;
 
 .item-list__payment-container {
   line-height: 19px;
-  padding: 25px 0px;
   flex-basis: 30%;
 }
 
@@ -419,6 +430,17 @@ margin-right: 15px;
   align-items: flex-start;
   justify-content: flex-start;
   position: relative;
+}
+
+.item-list__cost2{
+  color: #fd7801;
+  width: 100px;
+  flex-basis: 20%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
 }
 
 .item-list__to-basket {
@@ -467,7 +489,6 @@ margin-right: 15px;
   display: flex;
     margin-top: 35px;
     justify-content: flex-end;
-    width: 100%;
 }
 
 .show-on-mobile {
@@ -518,6 +539,101 @@ margin-right: 15px;
   align-items: flex-end;
   margin-bottom: 10px;
 }
+
+.info-LK{
+  display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    max-width: 1280px;
+    margin: 0px auto;
+    padding: 6px 10px;
+    width: 100%;
+}
+
+.info-LK-item{
+  display: flex;
+  flex-direction: row
+}
+
+.info-LK-item-left{
+  flex-basis: 40%;
+}
+
+.item-lk__favorite {
+  right: 12px;
+  width: 22px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url(./images/icon-heart-regular.svg);
+  background-repeat: no-repeat;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  outline: 0px;
+  margin: 0px;
+  padding: 0px;
+  filter: grayscale(100%);
+}
+
+.Authorization{
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 6px 10px;
+  width: 100%;
+}
+
+.messages-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-item{
+  display: flex;
+  flex-direction: row;
+}
+
+.dialog-block-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-indent: -9999px;
+}
+
+.dialog__avatar-wrap {
+  flex-basis: 10%;
+}
+
+.dialog-info {
+  flex-basis: 70%;
+}
+
+.dialog-date{
+  flex-basis: 20%;
+}
+
+.dialog-info-author{
+  font-weight: 600;
+}
+
+.dialog__avatar {
+  width: 56px;
+  height: 56px;
+  border: 1px solid #e5e7e8;
+  border-radius: 50%;
+  background-color: #e5e7e8;
+  font-family: "object-fit: cover";
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
 /*@media only screen and (max-width: 1279px){*/
   .header-btn-entry__icon {
       width: 24px;
