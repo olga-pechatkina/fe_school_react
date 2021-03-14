@@ -5,19 +5,18 @@ const IndexPage = () =>  (
       <div className = "contacts"/>
       <div className = "header-usermenu">
         <ul className = "header__nav-list">
-          <li className = "favorites header__nav-item">
-            <button type ="button" className = "button_fav">
-              <span className="fav_icon"/>   
-            </button>
-          </li>  
           <div className = "profile header__nav-block">
             <div className = "header-btn-entry">
-              <span className = "header-btn-entry__icon"/>
+              <a href="/lk">
+                <span className = "header-btn-entry__icon"/>
+              </a>
             </div>
           </div>
           <li className = "header__nav-item">
             <div className = "header-basket">
-              <span className = "header-basket__icon"/>
+              <a href="/basket">
+               <span className = "header-basket__icon"/>
+              </a>
             </div>  
           </li>   
         </ul>
@@ -163,7 +162,9 @@ const IndexPage = () =>  (
             <button className = "item-block__favorite" title = "Добавить в Избранное"/>
             <div className = "item-block__info-container">
               <div className = "item-block__name"> Кардиган </div>
-              <div className = "item-block__master-name"> Sewing company </div>
+              <a href='./seller'>
+               <div className = "item-block__master-name"> Sewing company </div>
+              </a>
               <div className = "item-block__payment-container">
                 <div className = "item-block__cost tobasket">
                   <span>1200 руб</span>
@@ -222,44 +223,44 @@ const IndexPage = () =>  (
                   <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
                 </div>
               </div>
-              </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-                <span className = "item1"/>              
-              </div>
-              <div className = "item-list_info-container">
-                <div className = "item-list_name"> Кардиган </div>
-                <div className = "item-list__master-name"> Sewing company </div>
-              </div>
-                <div className = "item-list__payment-container">
-                  <div className = "item-list__cost">
-                    <div style={{width: "100px", position: "absolute", right: "0px", top: "0px"}}>1200 руб</div>
-                    <div className="item-list__basketblock">
-                      <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                      <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                    </div>
-                  </div>
-                </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-                <span className = "item1"/>              
-              </div>
-              <div className = "item-list_info-container">
-                <div className = "item-list_name"> Кардиган </div>
-                <div className = "item-list__master-name"> Sewing company </div>
-              </div>
-                <div className = "item-list__payment-container">
-                  <div className = "item-list__cost">
-                    <div style={{width: "100px", position: "absolute", right: "0px", top: "0px"}}>1200 руб</div>
-                    <div className="item-list__basketblock">
-                      <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                      <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                    </div>
-                  </div>
-                </div>
             </div>
+          </div>
+          <div className = "item-container-list">
+            <div className = "item-list">
+              <span className = "item1-list"/>              
+            </div>
+            <div className = "item-list_info-container">
+              <div className = "item-list_name"> Кардиган </div>
+              <div className = "item-list__master-name"> Sewing company </div>
+            </div>
+            <div className = "item-list__cost2">1200 руб</div>
+              <div className = "item-list__payment-container">
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container-list">
+            <div className = "item-list">
+              <span className = "item1-list"/>              
+            </div>
+            <div className = "item-list_info-container">
+              <div className = "item-list_name"> Кардиган </div>
+              <div className = "item-list__master-name"> Sewing company </div>
+            </div>
+            <div className = "item-list__cost2">1200 руб</div>
+              <div className = "item-list__payment-container">
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
     </div>

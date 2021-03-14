@@ -1,12 +1,14 @@
 const Message = () =>  (
     <div className="Authorization">
+        <div className ="App-header">
+            <a href="/">
+                <div className = "logo"/>
+            </a>
+        </div>
         <h1>Сообщение</h1>
         <div className = "messages-list">
             <div className = "messages-item">
-                <a href="/contacts/show/61110140" class="dialog-block-link" draggable="false">Диалог</a>
-                <div class="dialog-avatar-wrap">
-                    <img class="dialog-avatar" src="./images/item2.jpg" alt="" width="56" height="56"/>
-                </div>
+                <a href="/message_read" class="dialog-block-link" draggable="false">Диалог</a>
                 <div className = "dialog-info">
                     <div className = "dialog-info-author">BestDresses</div>
                     <div className = "dialog-info-text">
