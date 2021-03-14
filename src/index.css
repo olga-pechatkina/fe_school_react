@@ -848,7 +848,6 @@ code {
 }
 
 .item-block__edit_lk{
-  right: 12px; 
   width: 25px;
   height: 100px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -861,7 +860,35 @@ code {
   outline: 0px;
   margin: auto;
   padding: 0px;
-  margin: 0px 30px;
+  margin: 0px 10px;
+}
+
+.LK {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 6px 10px;
+  width: 100%;
+}
+
+.MyShop{
+  position: relative;
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 6px 10px;
+  width: 100%;
+}
+
+.Basket {
+  position: relative;
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 6px 10px;
+  width: 100%;  
 }
 
 @media only screen and (max-width: 767px){
