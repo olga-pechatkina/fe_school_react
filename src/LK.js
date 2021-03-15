@@ -23,7 +23,8 @@ const LK = () =>  (
           </li>   
         </ul>
       </div>  
-      <div className = "mobile-buttons">
+    </div>
+    <div className = "mobile-buttons">
         <a href="/myshop">
          <button type="button" className="btn-rubrics-mobile-view">Мой магазин</button>
         </a>
@@ -31,7 +32,6 @@ const LK = () =>  (
          <button type="button" className="btn-rubrics-mobile-view">Мои сообщения</button>
         </a>
       </div>
-    </div>
     <div className = "info-LK">
         <div className = "info-LK-item">
             <div className = "info-LK-item-left">Вы зашли как:</div>

@@ -5,10 +5,9 @@ const Message = () =>  (
                 <div className = "logo"/>
             </a>
         </div>
-        <h1>Сообщение</h1>
+        <h1 style={{margin: "0px 5%"}}>Сообщение</h1>
         <div className = "messages-list">
             <div className = "messages-item">
-                <a href="/message_read" class="dialog-block-link" draggable="false">Диалог</a>
                 <div className = "dialog-info">
                     <div className = "dialog-info-author">BestDresses</div>
                     <div className = "dialog-info-text">
