@@ -8,6 +8,7 @@ import Basket from './Basket'
 import MyShop from './MyShop'
 import Seller from './Seller'
 import Favorites from './Favorites'
+import ItemDetails from './ItemDetails'
 
 import {
   BrowserRouter,
@@ -31,7 +32,8 @@ function App() {
         <Route exact path='/basket' component={Basket}/>     
         <Route exact path='/myshop' component={MyShop}/>
         <Route exact path='/seller' component={Seller}/> 
-        <Route exact path='/favorites' component={Favorites}/>           
+        <Route exact path='/favorites' component={Favorites}/>    
+        <Route exact path='/details' component={ItemDetails}/>        
         <Route component={<div>NotFound</div>}/>
       </Switch>
     </BrowserRouter>

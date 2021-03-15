@@ -28,10 +28,6 @@ const IndexPage = () =>  (
     </div>
     <div className="menu hide-on-mobile">
       <div className = "menu-item menu-item--active">Одежда и аксессуары</div>
-      <div className = "menu-item">Обувь</div>
-      <div className = "menu-item">Красота и уход</div>
-      <div className = "menu-item">Все для дома</div>
-      <div className = "menu-item">Для детей</div>
     </div>
     <div className = "hide-on-mobile">
       <span className = "banner"/>
@@ -157,8 +153,10 @@ const IndexPage = () =>  (
         <div className = "all-items-block hide-on-mobile">
           <div className = "item-container">
             <div className = "item-block">
-              <span>         
-                <img className="item1" src="/item1.jpg" alt =""/>
+              <span>
+                <a href="/details">        
+                  <img className="item1" src="/item1.jpg" alt =""/>
+                </a> 
               </span>  
             </div>
             <button className = "item-block__favorite" title = "Добавить в Избранное"/>

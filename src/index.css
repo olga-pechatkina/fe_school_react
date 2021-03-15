@@ -174,7 +174,6 @@ code {
   flex-direction: row;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .all-items-block-favorites{
@@ -264,6 +263,7 @@ code {
 .item-container {
   padding-bottom: 20px;
   position: relative;
+  margin: 0 12px;
 }
 
 .item-block {
@@ -918,6 +918,16 @@ code {
 }
 
 .Seller{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 320px;
+  margin: 0px 5%;
+  padding: 6px 10px;
+  width: auto;  
+}
+
+.ItemDetails{
   display: flex;
   flex-direction: column;
   position: relative;
