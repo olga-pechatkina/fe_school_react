@@ -1,6 +1,6 @@
 const Basket = () =>  (
     <div className="Basket">
-        <div className ="App-header">
+        <div className ="App-header__ins">
             <a href="/">
                 <div className = "logo"/>
             </a>
@@ -10,7 +10,9 @@ const Basket = () =>  (
         <div className = "all-items-list">
           <div className = "item-container-list">
             <div className = "item-list">
-              <span className = "item1-list"/>              
+               <span>         
+                  <img className="item1-list" src="/item1.jpg" alt =""/>
+               </span>             
             </div>
             <div className = "item-list_info-container">
               <div className = "item-list_name"> Кардиган </div>
@@ -20,7 +22,7 @@ const Basket = () =>  (
                 <button className="master-cart-items__item-btn master-cart-items__item-btn--minus" type="button">
                     <span className="master-cart-items__item-icon-minus"/>
                 </button>
-                <input type="number" min="1" max="1000" value="1" maxlength="3" className="master-cart-items__item-quantity-counter" style={{width: "41px"}}></input>
+                <input type="number" min="1" max="1000" value="1" maxlength="3" className="master-cart-items__item-quantity-counter" style={{width: "20px"}}></input>
                 <button class="master-cart-items__item-btn master-cart-items__item-btn--plus" type="button">
                     <span class="master-cart-items__item-icon-plus"/>
                 </button>
@@ -29,7 +31,9 @@ const Basket = () =>  (
           </div>
           <div className = "item-container-list">
             <div className = "item-list">
-              <span className = "item1-list"/>              
+              <span>         
+                <img className="item1-list" src="/item2.jpg" alt =""/>
+              </span>              
             </div>
             <div className = "item-list_info-container">
               <div className = "item-list_name"> Кардиган </div>
@@ -39,12 +43,12 @@ const Basket = () =>  (
                 <button className="master-cart-items__item-btn master-cart-items__item-btn--minus" type="button">
                     <span className="master-cart-items__item-icon-minus"/>
                 </button>
-                <input type="number" min="1" max="1000" value="1" maxlength="3" className="master-cart-items__item-quantity-counter" style={{width: "41px"}}></input>
+                <input type="number" min="1" max="1000" value="1" maxlength="3" className="master-cart-items__item-quantity-counter" style={{width: "20px"}}></input>
                 <button class="master-cart-items__item-btn master-cart-items__item-btn--plus" type="button">
                     <span class="master-cart-items__item-icon-plus"/>
                 </button>
             </div>
-            <div className = "item-list__cost_basket">1200 руб</div>
+            <div className = "item-list__cost_basket">1700 руб</div>
           </div>
         </div>
     </div>

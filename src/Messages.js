@@ -1,6 +1,6 @@
 const Messages = () =>  (
     <div className="Authorization">
-        <div className ="App-header">
+        <div className ="App-header__ins">
             <a href="/">
                 <div className = "logo"/>
             </a>

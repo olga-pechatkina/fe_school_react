@@ -1,6 +1,6 @@
 const LK = () =>  (
   <div className="LK">
-    <div className ="App-header">
+    <div className ="App-header__ins">
       <a href="/">
         <div className = "logo"/>
       </a>
@@ -43,8 +43,8 @@ const LK = () =>  (
             <div className = "info-LK-item-right">Москва</div>                
         </div>
         <hr className = "line"/>
+        <button className = "item-block__edit_lk" title = "Редактировать"/>
     </div>
-    <button className = "item-block__edit_lk" title = "Редактировать"/>
   </div>
   )
   export default LK;

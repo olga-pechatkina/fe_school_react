@@ -27,7 +27,7 @@ const IndexPage = () =>  (
       <button type="button" className="btn-rubrics-mobile-view">Фильтры</button>
     </div>
     <div className="menu hide-on-mobile">
-      <div className = "menu-item">Одежда и аксессуары</div>
+      <div className = "menu-item menu-item--active">Одежда и аксессуары</div>
       <div className = "menu-item">Обувь</div>
       <div className = "menu-item">Красота и уход</div>
       <div className = "menu-item">Все для дома</div>
@@ -157,7 +157,9 @@ const IndexPage = () =>  (
         <div className = "all-items-block hide-on-mobile">
           <div className = "item-container">
             <div className = "item-block">
-              <span className = "item1"/>              
+              <span>         
+                <img className="item1" src="/item1.jpg" alt =""/>
+              </span>  
             </div>
             <button className = "item-block__favorite" title = "Добавить в Избранное"/>
             <div className = "item-block__info-container">
@@ -175,12 +177,104 @@ const IndexPage = () =>  (
           </div>
           <div className = "item-container">
             <div className = "item-block">
-              <span className = "item1"/>              
+            <span>         
+              <img className="item1" src="/item2.jpg" alt =""/>
+            </span>            
+            </div>
+            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
+            <div className = "item-block__info-container">
+              <div className = "item-block__name"> Свитер </div>
+              <div className = "item-block__master-name"> Sewing company </div>
+              <div className = "item-block__payment-container">
+                <div className = "item-block__cost tobasket">
+                  <span>1700 руб</span>
+                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container">
+            <div className = "item-block">
+            <span>         
+              <img className="item1" src="/item3.jpg" alt =""/>
+            </span>                 
+            </div>
+            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
+            <div className = "item-block__info-container">
+              <div className = "item-block__name"> Кофта </div>
+              <div className = "item-block__master-name"> Clothes for you</div>
+              <div className = "item-block__payment-container">
+                <div className = "item-block__cost tobasket">
+                  <span>1100 руб</span>
+                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container">
+            <div className = "item-block">
+            <span>         
+              <img className="item1" src="/item4.jpg" alt =""/>
+            </span>                 
+            </div>
+            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
+            <div className = "item-block__info-container">
+              <div className = "item-block__name"> Свитер теплый </div>
+              <div className = "item-block__master-name"> Wear clothes</div>
+              <div className = "item-block__payment-container">
+                <div className = "item-block__cost tobasket">
+                  <span>2500 руб</span>
+                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container">
+            <div className = "item-block">
+            <span>         
+              <img className="item1" src="/item5.jpg" alt =""/>
+            </span>                 
+            </div>
+            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
+            <div className = "item-block__info-container">
+              <div className = "item-block__name"> Свитер </div>
+              <div className = "item-block__master-name"> Clothes for you</div>
+              <div className = "item-block__payment-container">
+                <div className = "item-block__cost tobasket">
+                  <span>1900 руб</span>
+                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container">
+            <div className = "item-block">
+            <span>         
+              <img className="item1" src="/item6.jpg" alt =""/>
+            </span>                 
             </div>
             <button className = "item-block__favorite" title = "Добавить в Избранное"/>
             <div className = "item-block__info-container">
               <div className = "item-block__name"> Кардиган </div>
-              <div className = "item-block__master-name"> Sewing company </div>
+              <div className = "item-block__master-name"> Sewing company</div>
+              <div className = "item-block__payment-container">
+                <div className = "item-block__cost tobasket">
+                  <span>1400 руб</span>
+                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container">
+            <div className = "item-block">
+            <span>         
+              <img className="item1" src="/item7.jpg" alt =""/>
+            </span>                 
+            </div>
+            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
+            <div className = "item-block__info-container">
+              <div className = "item-block__name"> Кофта </div>
+              <div className = "item-block__master-name"> Clothes for you</div>
               <div className = "item-block__payment-container">
                 <div className = "item-block__cost tobasket">
                   <span>1200 руб</span>
@@ -191,15 +285,17 @@ const IndexPage = () =>  (
           </div>
           <div className = "item-container">
             <div className = "item-block">
-              <span className = "item1"/>              
+            <span>         
+              <img className="item1" src="/item8.jpg" alt =""/>
+            </span>                 
             </div>
             <button className = "item-block__favorite" title = "Добавить в Избранное"/>
             <div className = "item-block__info-container">
-              <div className = "item-block__name"> Кардиган </div>
-              <div className = "item-block__master-name"> Sewing company </div>
+              <div className = "item-block__name"> Свитер </div>
+              <div className = "item-block__master-name"> Clothes for you</div>
               <div className = "item-block__payment-container">
                 <div className = "item-block__cost tobasket">
-                  <span>1200 руб</span>
+                  <span>1900 руб</span>
                   <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
                 </div>
               </div>
@@ -209,7 +305,9 @@ const IndexPage = () =>  (
         <div className = "all-items-list show-on-mobile">
           <div className = "item-container-list">
             <div className = "item-list">
-              <span className = "item1-list"/>              
+              <span>         
+                <img className="item1-list" src="/item1.jpg" alt =""/>
+              </span>              
             </div>
             <div className = "item-list_info-container">
               <div className = "item-list_name"> Кардиган </div>
@@ -227,11 +325,33 @@ const IndexPage = () =>  (
           </div>
           <div className = "item-container-list">
             <div className = "item-list">
-              <span className = "item1-list"/>              
+            <span>         
+                <img className="item1-list" src="/item2.jpg" alt =""/>
+              </span>             
             </div>
             <div className = "item-list_info-container">
-              <div className = "item-list_name"> Кардиган </div>
+              <div className = "item-list_name"> Кофта </div>
               <div className = "item-list__master-name"> Sewing company </div>
+            </div>
+            <div className = "item-list__cost2">1700 руб</div>
+              <div className = "item-list__payment-container">
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container-list">
+            <div className = "item-list">
+              <span>         
+                  <img className="item1-list" src="/item3.jpg" alt =""/>
+                </span>              
+            </div>
+            <div className = "item-list_info-container">
+              <div className = "item-list_name"> Свитер </div>
+              <div className = "item-list__master-name"> Dress you </div>
             </div>
             <div className = "item-list__cost2">1200 руб</div>
               <div className = "item-list__payment-container">
@@ -245,13 +365,95 @@ const IndexPage = () =>  (
           </div>
           <div className = "item-container-list">
             <div className = "item-list">
-              <span className = "item1-list"/>              
+              <span>         
+                  <img className="item1-list" src="/item4.jpg" alt =""/>
+                </span>              
+            </div>
+            <div className = "item-list_info-container">
+              <div className = "item-list_name"> Свитер теплый </div>
+              <div className = "item-list__master-name"> Dress you </div>
+            </div>
+            <div className = "item-list__cost2">1900 руб</div>
+              <div className = "item-list__payment-container">
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container-list">
+            <div className = "item-list">
+              <span>         
+                  <img className="item1-list" src="/item5.jpg" alt =""/>
+                </span>              
             </div>
             <div className = "item-list_info-container">
               <div className = "item-list_name"> Кардиган </div>
-              <div className = "item-list__master-name"> Sewing company </div>
+              <div className = "item-list__master-name"> Sewing company</div>
             </div>
-            <div className = "item-list__cost2">1200 руб</div>
+            <div className = "item-list__cost2">1000 руб</div>
+              <div className = "item-list__payment-container">
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container-list">
+            <div className = "item-list">
+              <span>         
+                  <img className="item1-list" src="/item6.jpg" alt =""/>
+                </span>              
+            </div>
+            <div className = "item-list_info-container">
+              <div className = "item-list_name"> Кофта </div>
+              <div className = "item-list__master-name"> Dress you </div>
+            </div>
+            <div className = "item-list__cost2">1400 руб</div>
+              <div className = "item-list__payment-container">
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container-list">
+            <div className = "item-list">
+              <span>         
+                  <img className="item1-list" src="/item7.jpg" alt =""/>
+                </span>              
+            </div>
+            <div className = "item-list_info-container">
+              <div className = "item-list_name"> Свитер </div>
+              <div className = "item-list__master-name"> Hugge things</div>
+            </div>
+            <div className = "item-list__cost2">1700 руб</div>
+              <div className = "item-list__payment-container">
+              <div className = "item-list__cost">
+                <div className="item-list__basketblock">
+                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
+                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className = "item-container-list">
+            <div className = "item-list">
+              <span>         
+                  <img className="item1-list" src="/item8.jpg" alt =""/>
+                </span>              
+            </div>
+            <div className = "item-list_info-container">
+              <div className = "item-list_name"> Свитер </div>
+              <div className = "item-list__master-name"> Dress you </div>
+            </div>
+            <div className = "item-list__cost2">2200 руб</div>
               <div className = "item-list__payment-container">
               <div className = "item-list__cost">
                 <div className="item-list__basketblock">
