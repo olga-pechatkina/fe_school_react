@@ -22,7 +22,7 @@ const ItemDetails = () =>  (
             </li>   
           </ul>
         </div>  
-        <div style={{top: "5px", position: "relative"}}>
+        <div style={{top: "5px", position: "relative", textAlign: "right"}}>
         <a href="./message_read">
             <button type="button" className="btn-rubrics-mobile-view_seller">Написать продавцу</button>
         </a>

@@ -922,7 +922,6 @@ code {
   flex-direction: column;
   position: relative;
   min-width: 320px;
-  margin: 0px 5%;
   padding: 6px 10px;
   width: auto;  
 }
@@ -932,7 +931,6 @@ code {
   flex-direction: column;
   position: relative;
   min-width: 320px;
-  margin: 0px 5%;
   padding: 6px 10px;
   width: auto;  
 }
@@ -943,20 +941,20 @@ code {
 }
 
 .mobile-buttons {
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* flex-wrap: nowrap; */
-    /* justify-content: space-between; */
-    margin-bottom: 6px;
-    border-radius: 5px;
-    margin: 0px auto;
-    padding: 6px 0px;
-    width: auto;
-    position: relative;
-    min-width: 320px;
-    /* max-width: 1280px; */
-    padding-left: 20px;
-    /* left: 0px;*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  /* margin-bottom: 6px; */
+  border-radius: 5px;
+  margin: 0px 5%;
+  padding: 6px 0px;
+  width: auto;
+  position: relative;
+  min-width: 320px;
+  /* max-width: 1280px; */
+  /* padding-left: 20px; */
+  align-self: flex-end;
 }
 
 .show-on-mobile{
