@@ -9,7 +9,9 @@ const LK = () =>  (
         <ul className = "header__nav-list">
           <div className = "profile header__nav-block">
             <div className = "header-btn-entry">
-              <span className = "item-lk__favorite"/>
+              <a href="/favorites">              
+                <span className = "item-lk__favorite"/>
+              </a>
             </div>
           </div>
           <li className = "header__nav-item">
