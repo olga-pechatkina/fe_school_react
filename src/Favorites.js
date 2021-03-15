@@ -6,7 +6,7 @@ const MyShop = () =>  (
             </a>
             <h1>Избранное</h1>
         </div>
-        <div className = "all-items-block">
+        <div className = "all-items-block-favorites">
           <div className = "item-container">
             <div className = "item-block">
               <span className = "item1"/>              

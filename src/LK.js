@@ -35,12 +35,14 @@ const LK = () =>  (
     <div className = "info-LK">
         <div className = "info-LK-item">
             <div className = "info-LK-item-left">Вы зашли как:</div>
-            <div className = "info-LK-item-right">Продающий Петр Петрович</div>
+            <div className = "info-LK-item-right">Sewing company</div>
         </div>
+        <hr className = "line"/>
         <div className = "info-LK-item">
             <div className = "info-LK-item-left">Город:</div>
             <div className = "info-LK-item-right">Москва</div>                
         </div>
+        <hr className = "line"/>
     </div>
     <button className = "item-block__edit_lk" title = "Редактировать"/>
   </div>
