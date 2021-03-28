@@ -1,4 +1,94 @@
-const IndexPage = () =>  (
+import React from "react";
+import Itemslist from "./Itemslist"
+
+class IndexPage extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      filterCity: "",
+      filterYear: "",
+      filterPrice: "",
+      filterWithPhoto: false,
+      items: [
+        {
+          name: "Кардиган",
+          seller: "Sewing company", //should be id to map with city
+          price: "1900",
+          photo: "/item1.jpg",
+          size: "44-56",
+          fabric: "merino wool",
+          year: "2020"
+        },
+        {
+          name: "Свитер",
+          seller: "Sewing company",
+          price: "1900",
+          photo: "/item2.jpg",
+          size: "44-56",
+          fabric: "cotton",
+          year: "2021"
+        },    
+        {
+          name: "Кофта",
+          seller: "Clothes for you",
+          price: "2200",
+          photo: "/item3.jpg",
+          size: "44-48",
+          fabric: "wool",
+          year: "2020"
+        },   
+        {
+          name: "Бадлон",
+          seller: "Wear clothes",
+          price: "1100",
+          photo: "/item4.jpg",
+          size: "44-52",
+          fabric: "merino wool",
+          year: "2020"
+        },
+        {
+          name: "Свитер",
+          seller: "Clothes for you",
+          price: "2000",
+          photo: "/item5.jpg",
+          size: "44-48",
+          fabric: "cotton",
+          year: "2019"
+        },
+        {
+          name: "Кардиган",
+          seller: "Wear clothes",
+          price: "2700",
+          photo: "/item6.jpg",
+          size: "44-50",
+          fabric: "wool",
+          year: "2020"
+        },
+        {
+          name: "Кофта",
+          seller: "Sewing company",
+          price: "1500",
+          photo: "/item7.jpg",
+          size: "44-48",
+          fabric: "wool",
+          year: "2020"
+        },
+        {
+          name: "Свитер теплый",
+          seller: "Sewing company",
+          price: "2500",
+          photo: "/item8.jpg",
+          size: "44-48",
+          fabric: "merino wool",
+          year: "2020"
+        },
+      ]
+    };
+  }
+
+  render() {
+    return (
   <div className="IndexPage">
     <div className ="App-header">
       <div className = "logo"/>
@@ -27,7 +117,8 @@ const IndexPage = () =>  (
       <button type="button" className="btn-rubrics-mobile-view">Фильтры</button>
     </div>
     <div className="menu hide-on-mobile">
-      <div className = "menu-item menu-item--active">Одежда и аксессуары</div>
+      <div className = "menu-item menu-item--active" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
+      <div className = "menu-item">Мебель</div>
     </div>
     <div className = "hide-on-mobile">
       <span className = "banner"/>
@@ -43,7 +134,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterCity === "Москва"}
+                    onChange={() => {this.setState({filterCity: "Москва"})}}/>
                     <span className = "catalog-filters_check--label">Москва</span>
                   </span>
                 </span>
@@ -51,7 +143,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterCity === "Санкт-Петербург"}
+                    onChange={() => {this.setState({filterCity: "Санкт-Петербург"})}}/>
                     <span className = "catalog-filters_check--label">Санкт-Петербург</span>
                   </span>
                 </span>
@@ -59,7 +152,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterCity === "Нижний Новгород"}
+                    onChange={() => {this.setState({filterCity: "Нижний Новгород"})}}/>
                     <span className = "catalog-filters_check--label">Нижний Новгород</span>
                   </span>
                 </span>
@@ -74,7 +168,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterYear === "2021"}
+                    onChange={() => {this.setState({filterYear: "2021"})}}/>
                     <span className = "catalog-filters_check--label">2021</span>
                   </span>
                 </span>
@@ -82,7 +177,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterYear === "2020"}
+                    onChange={() => {this.setState({filterYear: "2020"})}}/>
                     <span className = "catalog-filters_check--label">2020</span>
                   </span>
                 </span>
@@ -97,7 +193,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "less1"}
+                    onChange={() => {this.setState({filterPrice: "less1"})}}/>
                     <span className = "catalog-filters_check--label">0-1000</span>
                   </span>
                 </span>
@@ -105,7 +202,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "between12"}
+                    onChange={() => {this.setState({filterPrice: "between12"})}}/>
                     <span className = "catalog-filters_check--label">1000-2000</span>
                   </span>
                 </span>
@@ -113,7 +211,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "between23"}
+                    onChange={() => {this.setState({filterPrice: "between23"})}}/>
                     <span className = "catalog-filters_check--label">2000-3000</span>
                   </span>
                 </span>
@@ -121,7 +220,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "more3"}
+                    onChange={() => {this.setState({filterPrice: "more3"})}}/>
                     <span className = "catalog-filters_check--label">больше 3000</span>
                   </span>
                 </span>
@@ -136,7 +236,8 @@ const IndexPage = () =>  (
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"/>
+                    <input type = "checkbox" className = "catalog-filters_check--input"  checked = {this.state.filterWithPhoto === "true"}
+                    onChange={() => {this.setState({filterWithPhoto: "true"})}}/>
                     <span className = "catalog-filters_check--label">только с фотографией</span>
                   </span>
                 </span>
@@ -145,326 +246,11 @@ const IndexPage = () =>  (
           </div>        
         </div>
       </aside>
-      <div className = "all-items">
-        <div className = "filter-type">
-          <button className ="filter-table"/>
-          <button className ="filter-list"/>           
-        </div>
-        <div className = "all-items-block hide-on-mobile">
-          <div className = "item-container">
-            <div className = "item-block">
-              <span>
-                <a href="/details">        
-                  <img className="item1" src="/item1.jpg" alt =""/>
-                </a> 
-              </span>  
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Кардиган </div>
-              <a href='./seller'>
-               <div className = "item-block__master-name"> Sewing company </div>
-              </a>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>1200 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container">
-            <div className = "item-block">
-            <span>         
-              <img className="item1" src="/item2.jpg" alt =""/>
-            </span>            
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Свитер </div>
-              <div className = "item-block__master-name"> Sewing company </div>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>1700 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container">
-            <div className = "item-block">
-            <span>         
-              <img className="item1" src="/item3.jpg" alt =""/>
-            </span>                 
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Кофта </div>
-              <div className = "item-block__master-name"> Clothes for you</div>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>1100 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container">
-            <div className = "item-block">
-            <span>         
-              <img className="item1" src="/item4.jpg" alt =""/>
-            </span>                 
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Свитер теплый </div>
-              <div className = "item-block__master-name"> Wear clothes</div>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>2500 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container">
-            <div className = "item-block">
-            <span>         
-              <img className="item1" src="/item5.jpg" alt =""/>
-            </span>                 
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Свитер </div>
-              <div className = "item-block__master-name"> Clothes for you</div>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>1900 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container">
-            <div className = "item-block">
-            <span>         
-              <img className="item1" src="/item6.jpg" alt =""/>
-            </span>                 
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Кардиган </div>
-              <div className = "item-block__master-name"> Sewing company</div>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>1400 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container">
-            <div className = "item-block">
-            <span>         
-              <img className="item1" src="/item7.jpg" alt =""/>
-            </span>                 
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Кофта </div>
-              <div className = "item-block__master-name"> Clothes for you</div>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>1200 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container">
-            <div className = "item-block">
-            <span>         
-              <img className="item1" src="/item8.jpg" alt =""/>
-            </span>                 
-            </div>
-            <button className = "item-block__favorite" title = "Добавить в Избранное"/>
-            <div className = "item-block__info-container">
-              <div className = "item-block__name"> Свитер </div>
-              <div className = "item-block__master-name"> Clothes for you</div>
-              <div className = "item-block__payment-container">
-                <div className = "item-block__cost tobasket">
-                  <span>1900 руб</span>
-                  <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className = "all-items-list show-on-mobile">
-          <div className = "item-container-list">
-            <div className = "item-list">
-              <span>         
-                <img className="item1-list" src="/item1.jpg" alt =""/>
-              </span>              
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Кардиган </div>
-              <div className = "item-list__master-name"> Sewing company </div>
-            </div>
-            <div className = "item-list__cost2">1200 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-            <span>         
-                <img className="item1-list" src="/item2.jpg" alt =""/>
-              </span>             
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Кофта </div>
-              <div className = "item-list__master-name"> Sewing company </div>
-            </div>
-            <div className = "item-list__cost2">1700 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-              <span>         
-                  <img className="item1-list" src="/item3.jpg" alt =""/>
-                </span>              
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Свитер </div>
-              <div className = "item-list__master-name"> Dress you </div>
-            </div>
-            <div className = "item-list__cost2">1200 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-              <span>         
-                  <img className="item1-list" src="/item4.jpg" alt =""/>
-                </span>              
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Свитер теплый </div>
-              <div className = "item-list__master-name"> Dress you </div>
-            </div>
-            <div className = "item-list__cost2">1900 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-              <span>         
-                  <img className="item1-list" src="/item5.jpg" alt =""/>
-                </span>              
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Кардиган </div>
-              <div className = "item-list__master-name"> Sewing company</div>
-            </div>
-            <div className = "item-list__cost2">1000 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-              <span>         
-                  <img className="item1-list" src="/item6.jpg" alt =""/>
-                </span>              
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Кофта </div>
-              <div className = "item-list__master-name"> Dress you </div>
-            </div>
-            <div className = "item-list__cost2">1400 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-              <span>         
-                  <img className="item1-list" src="/item7.jpg" alt =""/>
-                </span>              
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Свитер </div>
-              <div className = "item-list__master-name"> Hugge things</div>
-            </div>
-            <div className = "item-list__cost2">1700 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "item-container-list">
-            <div className = "item-list">
-              <span>         
-                  <img className="item1-list" src="/item8.jpg" alt =""/>
-                </span>              
-            </div>
-            <div className = "item-list_info-container">
-              <div className = "item-list_name"> Свитер </div>
-              <div className = "item-list__master-name"> Dress you </div>
-            </div>
-            <div className = "item-list__cost2">2200 руб</div>
-              <div className = "item-list__payment-container">
-              <div className = "item-list__cost">
-                <div className="item-list__basketblock">
-                  <button className = "item-list__favorite" title = "Добавить в Избранное"/>
-                  <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
+      <Itemslist items={this.state.items} />
     </div>
   </div>
-)
+);
+}
+}
 
 export default IndexPage;

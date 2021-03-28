@@ -5,7 +5,9 @@ const Basket = () =>  (
                 <div className = "logo"/>
             </a>
             <h1>Корзина</h1>
-            <button type="button" className="btn-rubrics-mobile-view">Оформить покупку</button>
+            <div  style = {{textAlign: "right"}}>
+                <button type="button" className="btn-rubrics-mobile-view">Оформить покупку</button>
+            </div>
         </div>
         <div className = "all-items-list">
           <div className = "item-container-list">

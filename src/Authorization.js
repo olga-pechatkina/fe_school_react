@@ -13,6 +13,7 @@ const Authorization = () =>  (
             <div className = "auth-row">
                 <input className = "auth-input" type = "password" placeholder = "Пароль"/>
             </div>
+            <button type="button" className="btn-rubrics-mobile-view">Войти</button>
         </div>
     </div>
   )

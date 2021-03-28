@@ -148,7 +148,6 @@ code {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
   min-width: 320px;
   margin: 0px 5%;
   padding: 6px 10px;
@@ -293,10 +292,10 @@ code {
 .item1-list {
   background-size: contain;
   background-repeat: no-repeat;
-  height: 50px;
+  height: 120px;
   background-position: center;
   display: flex;
-  width: 50px;
+  width: 120px;
   /*min-width: 320px;
   max-width: 1280px;*/
 }
@@ -397,12 +396,12 @@ code {
 }
 
 .item-list{
-  flex-basis: 15%;
+  flex-basis: 20%;
 }
 
 .item-list_info-container {
-    padding: 5px;
-    flex-basis: 30%;
+  padding: 5px;
+  flex-basis: 50%;
 }
 
 .item-list_name {
@@ -429,27 +428,29 @@ code {
 
 .item-list__payment-container {
   line-height: 19px;
-  flex-basis: 35%;
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
 }
 
 .item-list__cost {
   color: #fd7801;
   font-size: 14px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
   position: relative;
 }
 
 .item-list__cost2{
   color: #fd7801;
   width: 100px;
-  flex-basis: 20%;
+  /* flex-basis: 20%; */
   font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
   font-weight: 600;
 }
 
@@ -497,8 +498,8 @@ code {
 
 .item-list__basketblock {
   display: flex;
-    margin-top: 35px;
-    justify-content: flex-end;
+  margin-top: 20px;
+  justify-content: flex-end;
 }
 
 .show-on-mobile {
@@ -607,7 +608,7 @@ code {
 
 .messages-item{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 10px 0px;
 }
 
@@ -966,6 +967,10 @@ code {
   text-align:center;
 }
 
+input:read-only{
+  border:none
+}
+
 @media only screen and (max-width: 767px){
 .logo {
     width: 90px;
@@ -1005,6 +1010,12 @@ code {
 .wrapper{
   margin:10px;
   text-align:center;
+}
+
+
+.item1-list {
+  height: 60px;
+  width: 60px;
 }
 
 }
