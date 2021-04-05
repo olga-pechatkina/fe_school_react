@@ -1,4 +1,6 @@
-const Seller = () =>  (
+import { connect } from 'react-redux'
+
+const Seller = (props) =>  (
     <div className="Seller">
       <div className ="App-header__ins">
         <a href="/">
@@ -31,16 +33,23 @@ const Seller = () =>  (
       <div className = "info-LK">
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Продавец:</div>
-              <div className = "info-LK-item-right">Sewing company</div>
+              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === props.match.params.id).name}</div>
           </div>
           <hr className = "line"/>
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Город:</div>
-              <div className = "info-LK-item-right">Москва</div>                
+              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === props.match.params.id).city}</div>                
           </div>
           <hr className = "line"/>
       </div>
     </div>
     )
-    export default Seller;
+
+    const mapStateToProps = state => {
+      return {
+        sellers: state.clothes.sellers,
+      }
+    }
+    
+    export default connect(mapStateToProps, null)(Seller);
     

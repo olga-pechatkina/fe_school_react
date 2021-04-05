@@ -4,6 +4,10 @@ const Item = (props) => {
     // readonly={readonly}
     const [readonly, setRO] = useState("false");
 
+    function handleChange(e) {
+        props.onChange(e.target.id);
+      }
+
     return(
     <div className = "item-container">
         <div className = "item-block">
@@ -18,7 +22,7 @@ const Item = (props) => {
             <div className = "item-block__payment-container">
                 <div className = "item-block__cost tobasket">
                 <span>{props.item.price}</span>
-                <button className="item-block__to-basket" title="Положить в корзину товар">Удалить</button>
+                <button className="item-block__to-basket" title="Положить в корзину товар" id = {props.item.id} onClick = {handleChange}>Удалить</button>
                 </div>
             </div>
         </div>

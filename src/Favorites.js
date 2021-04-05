@@ -1,38 +1,27 @@
 import ItemsComp from "./ItemsComp"
+import { connect } from 'react-redux'
+import { handleAction } from "./store/actions/index"
 
-const MyShop = () =>  {
-  const items = [
-    {
-      name: "Кардиган",
-      seller: "Sewing company", //should be id to map with city
-      price: "1900",
-      photo: "/item1.jpg",
-      size: "44-56",
-      fabric: "merino wool",
-      year: "2020"
-    },
-    {
-      name: "Свитер",
-      seller: "Sewing company",
-      price: "1900",
-      photo: "/item2.jpg",
-      size: "44-56",
-      fabric: "cotton",
-      year: "2021"
-    },    
-    {
-      name: "Кофта",
-      seller: "Clothes for you",
-      price: "2200",
-      photo: "/item3.jpg",
-      size: "44-48",
-      fabric: "wool",
-      year: "2020"
-    }]
+const Favorites = (props) =>  {
 
-  return(
-  <ItemsComp items={items} header = "Избранное"/>
-  )
+    function _changeFav(id){ 
+      props.handleAction("REMOVE_FAV", id);
+    };
+
+    return(
+    <ItemsComp items={props.items.filter(it=> props.userFavorites.find(el => el === it.id)!== undefined)} header = "Избранное" onChange={_changeFav}/>
+    )
+  } 
+
+  const mapStateToProps = state => {
+    return {
+      items: state.clothes.items,
+      userFavorites: state.clothes.userFavorites
+    }
   }
-  export default MyShop;
+
+  const mapDispatchToProps ={
+    handleAction
+  }
   
+  export default connect(mapStateToProps, mapDispatchToProps, null)(Favorites);

@@ -1,4 +1,6 @@
-const LK = () =>  (
+import { connect } from 'react-redux'
+
+const LK = (props) =>  (
   <div className="LK">
     <div className ="App-header__ins">
       <a href="/">
@@ -35,17 +37,26 @@ const LK = () =>  (
     <div className = "info-LK">
         <div className = "info-LK-item">
             <div className = "info-LK-item-left">Вы зашли как:</div>
-            <div className = "info-LK-item-right">Sewing company</div>
+            <div className = "info-LK-item-right">{props.userName}</div>
         </div>
         <hr className = "line"/>
         <div className = "info-LK-item">
             <div className = "info-LK-item-left">Город:</div>
-            <div className = "info-LK-item-right">Москва</div>                
+            <div className = "info-LK-item-right">{props.userCity}</div>                
         </div>
         <hr className = "line"/>
         <button className = "item-block__edit_lk" title = "Редактировать"/>
     </div>
   </div>
   )
-  export default LK;
+
+
+  const mapStateToProps = state => {
+    return {
+      userName: state.clothes.userName,
+      userCity: state.clothes.userCity
+    }
+  }
+  
+  export default connect(mapStateToProps, null)(LK);
   

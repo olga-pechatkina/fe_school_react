@@ -1,5 +1,7 @@
 import React from "react";
 import Itemslist from "./Itemslist"
+import { connect } from 'react-redux'
+import ItemsComp from "./ItemsComp";
 
 class IndexPage extends React.Component {
   constructor() {
@@ -9,81 +11,9 @@ class IndexPage extends React.Component {
       filterCity: "",
       filterYear: "",
       filterPrice: "",
+      filterPriceMin: "",
+      filterPriceMax: "",      
       filterWithPhoto: false,
-      items: [
-        {
-          name: "Кардиган",
-          seller: "Sewing company", //should be id to map with city
-          price: "1900",
-          photo: "/item1.jpg",
-          size: "44-56",
-          fabric: "merino wool",
-          year: "2020"
-        },
-        {
-          name: "Свитер",
-          seller: "Sewing company",
-          price: "1900",
-          photo: "/item2.jpg",
-          size: "44-56",
-          fabric: "cotton",
-          year: "2021"
-        },    
-        {
-          name: "Кофта",
-          seller: "Clothes for you",
-          price: "2200",
-          photo: "/item3.jpg",
-          size: "44-48",
-          fabric: "wool",
-          year: "2020"
-        },   
-        {
-          name: "Бадлон",
-          seller: "Wear clothes",
-          price: "1100",
-          photo: "/item4.jpg",
-          size: "44-52",
-          fabric: "merino wool",
-          year: "2020"
-        },
-        {
-          name: "Свитер",
-          seller: "Clothes for you",
-          price: "2000",
-          photo: "/item5.jpg",
-          size: "44-48",
-          fabric: "cotton",
-          year: "2019"
-        },
-        {
-          name: "Кардиган",
-          seller: "Wear clothes",
-          price: "2700",
-          photo: "/item6.jpg",
-          size: "44-50",
-          fabric: "wool",
-          year: "2020"
-        },
-        {
-          name: "Кофта",
-          seller: "Sewing company",
-          price: "1500",
-          photo: "/item7.jpg",
-          size: "44-48",
-          fabric: "wool",
-          year: "2020"
-        },
-        {
-          name: "Свитер теплый",
-          seller: "Sewing company",
-          price: "2500",
-          photo: "/item8.jpg",
-          size: "44-48",
-          fabric: "merino wool",
-          year: "2020"
-        },
-      ]
     };
   }
 
@@ -193,8 +123,8 @@ class IndexPage extends React.Component {
               <label className ="catalog-filters_check">
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "less1"}
-                    onChange={() => {this.setState({filterPrice: "less1"})}}/>
+                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPriceMin === "less1"}
+                    onChange={() => {this.setState({filterPrice: "less1", filterPriceMin:"0", filterPriceMax: "1000"})}}/>
                     <span className = "catalog-filters_check--label">0-1000</span>
                   </span>
                 </span>
@@ -203,7 +133,7 @@ class IndexPage extends React.Component {
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
                     <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "between12"}
-                    onChange={() => {this.setState({filterPrice: "between12"})}}/>
+                    onChange={() => {this.setState({filterPrice: "between12", filterPriceMin:"1000", filterPriceMax: "2000"})}}/>
                     <span className = "catalog-filters_check--label">1000-2000</span>
                   </span>
                 </span>
@@ -212,7 +142,7 @@ class IndexPage extends React.Component {
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
                     <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "between23"}
-                    onChange={() => {this.setState({filterPrice: "between23"})}}/>
+                    onChange={() => {this.setState({filterPrice: "between23", filterPriceMin:"2000", filterPriceMax: "3000"})}}/>
                     <span className = "catalog-filters_check--label">2000-3000</span>
                   </span>
                 </span>
@@ -221,7 +151,7 @@ class IndexPage extends React.Component {
                 <span className = "catalog-filters_check--left">
                   <span className = "catalog-filters_check--block">
                     <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "more3"}
-                    onChange={() => {this.setState({filterPrice: "more3"})}}/>
+                    onChange={() => {this.setState({filterPrice: "more3", filterPriceMin:"3000", filterPriceMax: null})}}/>
                     <span className = "catalog-filters_check--label">больше 3000</span>
                   </span>
                 </span>
@@ -246,11 +176,19 @@ class IndexPage extends React.Component {
           </div>        
         </div>
       </aside>
-      <Itemslist items={this.state.items} />
+      <Itemslist items={this.props.items.filter(item => (!this.state.filterYear || (this.state.filterYear && item.year === this.state.filterYear)) &&
+        (!this.state.filterPrice || (this.state.filterPriceMin < item.price && (this.state.filterPriceMax > item.price || this.state.filterPriceMax === null))))} />
     </div>
   </div>
 );
 }
 }
 
-export default IndexPage;
+
+const mapStateToProps = state => {
+  return {
+      items: state.clothes.items
+  }
+}
+
+export default connect(mapStateToProps, null)(IndexPage);

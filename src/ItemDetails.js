@@ -1,5 +1,10 @@
-const ItemDetails = () =>  (
-    <div className="ItemDetails">
+import { connect } from 'react-redux'
+
+const ItemDetails = (props) => {
+  const item = props.items.find(it => it.id === props.match.params.id);
+
+  return (
+  <div className="ItemDetails">
       <div className ="App-header__ins">
         <a href="/">
             <div className = "logo"/>
@@ -29,30 +34,38 @@ const ItemDetails = () =>  (
         </div>
       </div>
       <span>         
-        <img className="item1" style={{padding: "6px 0px", margin: "0px 5%"}}src="/item1.jpg" alt =""/>
+        <img className="item1" style={{padding: "6px 0px", margin: "0px 5%"}}src={item.photo} alt =""/>
       </span> 
       <div className = "info-LK">
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Продавец:</div>
-              <div className = "info-LK-item-right">Sewing company</div>
+              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === item.sellerId).name} </div>
           </div>
           <hr className = "line"/>
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Город:</div>
-              <div className = "info-LK-item-right">Москва</div>                
+              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === item.sellerId).city}</div>                
           </div>
           <hr className = "line"/>
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Материал:</div>
-              <div className = "info-LK-item-right">шерсть 100%</div>                
+              <div className = "info-LK-item-right">{item.fabric}</div>                
           </div>
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Размеры:</div>
-              <div className = "info-LK-item-right">48-56</div>                
+              <div className = "info-LK-item-right">{item.size}</div>                
           </div>
           <hr className = "line"/>
       </div>
     </div>
-    )
-    export default ItemDetails;
+  );
+}
+    const mapStateToProps = state => {
+      return {
+          items: state.clothes.items,
+          sellers: state.clothes.sellers
+      }
+  }
+  
+  export default connect(mapStateToProps, null)(ItemDetails);
     

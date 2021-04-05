@@ -1,3 +1,4 @@
+import { connect } from 'react-redux'
 import React, { useState } from "react";
 
 const Itemslist = (props) =>  {
@@ -14,7 +15,7 @@ return(
                 <div className = "item-container"> 
                 <div className = "item-block">
                     <span> 
-                    <a href="/details">        
+                    <a href={"/details/" + item.id}>        
                         <img className="item1" src={item.photo} alt =""/>
                     </a> 
                     </span>  
@@ -22,8 +23,8 @@ return(
                 <button className = "item-block__favorite" title = "Добавить в Избранное"/>
                 <div className = "item-block__info-container">
                     <div className = "item-block__name"> {item.name} </div>
-                    <a href='./seller'>
-                    <div className = "item-block__master-name"> {item.seller} </div>
+                    <a href={'./seller/' + item.sellerId}>
+                    <div className = "item-block__master-name"> {props.sellerName.find(el => el.id === item.sellerId).name } </div>
                     </a>
                     <div className = "item-block__payment-container">
                     <div className = "item-block__cost tobasket">
@@ -63,4 +64,10 @@ return(
 );
 }
 
-export default Itemslist;
+const mapStateToProps = state => {
+    return {
+        sellerName: state.clothes.sellers
+    }
+}
+
+export default connect(mapStateToProps, null)(Itemslist);
