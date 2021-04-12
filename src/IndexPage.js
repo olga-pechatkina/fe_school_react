@@ -1,11 +1,13 @@
 import React from "react";
-import Itemslist from "./Itemslist"
+import Itemslist from "./items/Itemslist"
+import FilterPanel from "./filters/FilterPanel"
 import { connect } from 'react-redux'
 import ItemsComp from "./ItemsComp";
 
+//TODO: see comments
 class IndexPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       filterCity: "",
@@ -53,131 +55,18 @@ class IndexPage extends React.Component {
     <div className = "hide-on-mobile">
       <span className = "banner"/>
     </div>
-    <div className = "catalog">     
-      <aside id = "filter-panel-left" className = "hide-on-mobile">
-      <div className = "catalog-filters-list">      
-          <div className = "catalog-filters-item">
-            <div className = "catalog-filters-box_top">
-              <span className = "catalog-filters-box_name">Город</span>
-            </div>
-            <div className = "catalog-filters-box_content">
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterCity === "Москва"}
-                    onChange={() => {this.setState({filterCity: "Москва"})}}/>
-                    <span className = "catalog-filters_check--label">Москва</span>
-                  </span>
-                </span>
-              </label>
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterCity === "Санкт-Петербург"}
-                    onChange={() => {this.setState({filterCity: "Санкт-Петербург"})}}/>
-                    <span className = "catalog-filters_check--label">Санкт-Петербург</span>
-                  </span>
-                </span>
-              </label>
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterCity === "Нижний Новгород"}
-                    onChange={() => {this.setState({filterCity: "Нижний Новгород"})}}/>
-                    <span className = "catalog-filters_check--label">Нижний Новгород</span>
-                  </span>
-                </span>
-              </label>
-            </div>
-          </div>
-          <div className = "catalog-filters-item">
-            <div className = "catalog-filters-box_top">
-              <span className = "catalog-filters-box_name">Коллекция год</span>
-            </div>
-            <div className = "catalog-filters-box_content">
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterYear === "2021"}
-                    onChange={() => {this.setState({filterYear: "2021"})}}/>
-                    <span className = "catalog-filters_check--label">2021</span>
-                  </span>
-                </span>
-              </label>
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterYear === "2020"}
-                    onChange={() => {this.setState({filterYear: "2020"})}}/>
-                    <span className = "catalog-filters_check--label">2020</span>
-                  </span>
-                </span>
-              </label>
-            </div>
-          </div>
-          <div className = "catalog-filters-item">
-            <div className = "catalog-filters-box_top">
-              <span className = "catalog-filters-box_name">Цена</span>
-            </div>
-            <div className = "catalog-filters-box_content">
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPriceMin === "less1"}
-                    onChange={() => {this.setState({filterPrice: "less1", filterPriceMin:"0", filterPriceMax: "1000"})}}/>
-                    <span className = "catalog-filters_check--label">0-1000</span>
-                  </span>
-                </span>
-              </label>
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "between12"}
-                    onChange={() => {this.setState({filterPrice: "between12", filterPriceMin:"1000", filterPriceMax: "2000"})}}/>
-                    <span className = "catalog-filters_check--label">1000-2000</span>
-                  </span>
-                </span>
-              </label>
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "between23"}
-                    onChange={() => {this.setState({filterPrice: "between23", filterPriceMin:"2000", filterPriceMax: "3000"})}}/>
-                    <span className = "catalog-filters_check--label">2000-3000</span>
-                  </span>
-                </span>
-              </label>
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input" checked = {this.state.filterPrice === "more3"}
-                    onChange={() => {this.setState({filterPrice: "more3", filterPriceMin:"3000", filterPriceMax: null})}}/>
-                    <span className = "catalog-filters_check--label">больше 3000</span>
-                  </span>
-                </span>
-              </label>
-            </div>
-          </div>    
-          <div className = "catalog-filters-item">
-            <div className = "catalog-filters-box_top">
-              <span className = "catalog-filters-box_name">С фотографией</span>
-            </div>
-            <div className = "catalog-filters-box_content">
-              <label className ="catalog-filters_check">
-                <span className = "catalog-filters_check--left">
-                  <span className = "catalog-filters_check--block">
-                    <input type = "checkbox" className = "catalog-filters_check--input"  checked = {this.state.filterWithPhoto === "true"}
-                    onChange={() => {this.setState({filterWithPhoto: "true"})}}/>
-                    <span className = "catalog-filters_check--label">только с фотографией</span>
-                  </span>
-                </span>
-              </label>
-            </div>
-          </div>        
-        </div>
-      </aside>
-      <Itemslist items={this.props.items.filter(item => (!this.state.filterYear || (this.state.filterYear && item.year === this.state.filterYear)) &&
-        (!this.state.filterPrice || (this.state.filterPriceMin < item.price && (this.state.filterPriceMax > item.price || this.state.filterPriceMax === null))))} />
+    <div className = "catalog">
+
+      {/* весь блок выносим как компонент FilterPanel или что-то в этом духе.
+          Нужно заменить чекбоксы на радиогруппу там, где преполагается исключающий выбор. Если выбор множественный, можно оставить чекбоксы.
+       */}
+      <FilterPanel/>
+      {/* давай тут попробуем красиво сделать. я сама с редаксом в бою дело не имела, но, раз уж в программе есть...
+      https://redux.js.org/tutorials/fundamentals/part-7-standard-patterns у них тут есть пример с фильтрами */}
+      <Itemslist
+          items={this.props.items.filter(item => (!this.state.filterYear || (this.state.filterYear && item.year === this.state.filterYear)) &&
+        (!this.state.filterPrice || (this.state.filterPriceMin < item.price && (this.state.filterPriceMax > item.price || this.state.filterPriceMax === null))))}
+      />
     </div>
   </div>
 );

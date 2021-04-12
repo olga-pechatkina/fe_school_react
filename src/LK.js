@@ -1,6 +1,16 @@
 import { connect } from 'react-redux'
+import React, { useState } from "react";
 
-const LK = (props) =>  (
+const LK = (props) =>  {
+
+  const [_editable, setEditable] = useState(false);
+  const [data, setData] = useState({
+    userName: props.userName,
+    userCity: props.userCity
+    });
+
+
+  return(
   <div className="LK">
     <div className ="App-header__ins">
       <a href="/">
@@ -28,7 +38,7 @@ const LK = (props) =>  (
     </div>
     <div className = "mobile-buttons">
         <a href="/myshop">
-         <button type="button" className="btn-rubrics-mobile-view">Мой магазин</button>
+        {props.userIsSeller && <button type="button" className="btn-rubrics-mobile-view">Мой магазин</button>}
         </a>
         <a href="/messages">
          <button type="button" className="btn-rubrics-mobile-view">Мои сообщения</button>
@@ -37,24 +47,28 @@ const LK = (props) =>  (
     <div className = "info-LK">
         <div className = "info-LK-item">
             <div className = "info-LK-item-left">Вы зашли как:</div>
-            <div className = "info-LK-item-right">{props.userName}</div>
+            <div className = {_editable ? "info-LK-item-right--editable" : "info-LK-item-right" }
+                contentEditable={_editable} >{props.userName}</div>
         </div>
         <hr className = "line"/>
         <div className = "info-LK-item">
             <div className = "info-LK-item-left">Город:</div>
-            <div className = "info-LK-item-right">{props.userCity}</div>                
+            <div className =  {_editable ? "info-LK-item-right--editable" : "info-LK-item-right" }
+               contentEditable={_editable} >{props.userCity}</div>                
         </div>
         <hr className = "line"/>
-        <button className = "item-block__edit_lk" title = "Редактировать"/>
+        <button className = {_editable ? "item-block__save_lk" : "item-block__edit_lk"} title = "Редактировать" onClick={() => setEditable(!_editable)}/>
     </div>
   </div>
   )
+}
 
 
   const mapStateToProps = state => {
     return {
       userName: state.clothes.userName,
-      userCity: state.clothes.userCity
+      userCity: state.clothes.userCity,
+      userIsSeller: state.clothes.userIsSeller
     }
   }
   

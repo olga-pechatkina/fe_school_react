@@ -310,6 +310,14 @@ code {
     margin-bottom: 6px;
 }
 
+.item-block__name--editable {
+  border: 1px solid #333;
+}
+
+.info-LK-item-right--editable{
+  border: 1px solid #333;
+}
+
 .item-block__master-name {
   display: block;
   font-size: 12px;
@@ -598,6 +606,8 @@ code {
   min-width: 320px;
   margin: 0px 5%;
   width: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .messages-list{
@@ -861,6 +871,22 @@ code {
   height: 100px;
   background-color: rgba(255, 255, 255, 0.8);
   background-image: url(./images/edit.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  outline: 0px;
+  margin: auto;
+  padding: 0px;
+  margin: 0px 10px;
+}
+
+.item-block__save_lk{
+  width: 25px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url(./images/save.jpg);
   background-repeat: no-repeat;
   background-size: contain;
   border-width: 0px;

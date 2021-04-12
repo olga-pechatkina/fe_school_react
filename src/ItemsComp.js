@@ -2,8 +2,6 @@ import Item from "./Item.js"
 
 const ItemsComp = (props) =>   {
 
-    
-
     return(
         <div className="MyShop">
             <div className ="App-header__ins">
@@ -14,7 +12,7 @@ const ItemsComp = (props) =>   {
             </div>
             <div className = "all-items-block-favorites">
             {props.items.map((item, index) => (
-                <Item item={item} edit={props.edit} onChange = {props.onChange}/>
+                <Item item={item} editable={props.editable} key={index.toString() + '--' + index} onChange = {props.onChange}/>
             ))}
             </div>
         </div>

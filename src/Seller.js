@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import ButtonMessage from "./ButtonMessage"
 
 const Seller = (props) =>  (
     <div className="Seller">
@@ -25,20 +26,21 @@ const Seller = (props) =>  (
           </ul>
         </div>  
         <div style={{top: "5px", position: "relative", textAlign: "right"}}>
-        <a href="./message_read">
-            <button type="button" className="btn-rubrics-mobile-view_seller">Написать продавцу</button>
-        </a>
+            {/* вот эта кнопка используется несколько раз. предлагаю ее и аналогничные ей вынести в отдельный компонент
+        + кнопка внутри ссылки - плохо. у тебя есть возможность написать обработчик onClick, в который передать любой код,
+         в том числе и редирект с параметром */}
+          <ButtonMessage/>
         </div>
       </div>
       <div className = "info-LK">
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Продавец:</div>
-              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === props.match.params.id).name}</div>
+              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === +props.match.params.id)?.name}</div>
           </div>
           <hr className = "line"/>
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Город:</div>
-              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === props.match.params.id).city}</div>                
+              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === +props.match.params.id)?.city}</div>
           </div>
           <hr className = "line"/>
       </div>

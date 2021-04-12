@@ -5,7 +5,7 @@ const Authorization = () =>  (
                 <div className = "logo"/>
         </a>
         </div>
-        <div class = "wrapper">
+        <div className = "wrapper">
             <h1>Авторизация</h1>
             <div className = "auth-row">
                 <input className = "auth-input" placeholder = "Телефон, email или логин"/>
