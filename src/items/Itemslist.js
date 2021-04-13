@@ -20,6 +20,7 @@ return(
             {props.items.map((item, index) => (<ItemBlockView item={item}
                                sellerName={props.sellerName.find(el => el.id === item.sellerId).name}
                                key={index + '--' + index}
+                               inFav={props.userFavorites.indexOf(item.id) !== -1}
             />))}
         </div>)}
         {(mode===1) && (<div className = "all-items-list">
@@ -27,6 +28,7 @@ return(
             {props.items.map((item, index) => (<ItemListView item={item}
                                sellerName={props.sellerName.find(el => el.id === item.sellerId).name}
                                key={index + '--' + index}
+                               inFav={props.userFavorites.indexOf(item.id) !== -1}
             />))}           
         </div>)}
     </div>
@@ -35,7 +37,7 @@ return(
 
 const mapStateToProps = state => {
     return {
-        sellerName: state.clothes.sellers
+        userFavorites: state.clothes.userFavorites
     }
 }
 

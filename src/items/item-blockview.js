@@ -1,29 +1,48 @@
 import React from "react";
+import FavButton from './FavButton'
+import BasketButton from './BasketButton'
+import { connect } from 'react-redux'
+import { handleAction } from "./../store/actions/index"
 
-const ItemBlockView = ({item, sellerName}) =>{
+const ItemBlockView = (props) =>{
+
+    function addToFav(id){
+        props.handleAction("ADD_TO_FAV", id);
+    }
+
+    function addToBasket(id){
+        props.handleAction("ADD_TO_BASKET", id);
+    }   
 
     return <div className = "item-container">
         <div className = "item-block">
                     <span>
-                    <a href={"/details/" + item.id}>
-                        <img className="item1" src={item.photo} alt =""/>
+                    <a href={"/details/" + props.item.id}>
+                        <img className="item1" src={props.item.photo} alt =""/>
                     </a>
                     </span>
         </div>
-        <button className = "item-block__favorite" title = "Добавить в Избранное"/>
+        {!props.inFav && <FavButton classN = "item-block__favorite"  onClick={() => addToFav(props.item.id)}/>}
         <div className = "item-block__info-container">
-            <div className = "item-block__name"> {item.name} </div>
-            <a href={'./seller/' + item.sellerId}>
-                <div className = "item-block__master-name"> {sellerName} </div>
+            <div className = "item-block__name"> {props.item.name} </div>
+            <a href={'./seller/' + props.item.sellerId}>
+                <div className = "item-block__master-name"> {props.sellerName} </div>
             </a>
             <div className = "item-block__payment-container">
                 <div className = "item-block__cost tobasket">
-                    <span>{item.price}</span>
-                    <button className="item-block__to-basket" title="Положить в корзину товар">В корзину</button>
+                    <span>{props.item.price}</span>
+                    <BasketButton classN = "item-block__to-basket"  onClick={() => addToBasket(props.item.id)}/>
                 </div>
             </div>
         </div>
     </div>
 }
 
-export default ItemBlockView
+
+
+const mapDispatchToProps ={
+    handleAction
+  }
+  
+
+export default connect (null, mapDispatchToProps)(ItemBlockView);

@@ -100,3 +100,38 @@ const initialState = {
         },
       ]
     }
+
+    export default function furniture (state = initialState, action){
+      switch (action.type) {
+      /* case 'REMOVE_FAV' :
+         action.value = state.userFavorites.filter(id => id !== action.payload);
+         return {...state, userFavorites: action.value}
+       case 'REMOVE_ITEM' :
+         action.value = state.userItems.filter(id => id !== action.payload);
+         return {...state, userItems: action.value}
+       case 'CHANGE_ITEM' :
+         let name = action.val[0].name;
+         let price = action.val[0].price;
+         let id = state.items.indexOf(state.items.find(it => it.id === action.payload))
+        /* state.items[action.payload].name = name;
+         state.items[action.payload].price = price;      */
+   /*      return  {...state, ...state.items[id], name: name, price: price};  
+       case 'ADD_FILTER' :
+       //  action.value = state[action.payload].map((item, id) => if)[action.val]
+         action.value = [...state[action.payload]];
+         action.value[action.val] = !action.value[action.val]    
+         return {...state, 'action.payload': action.value}
+       case 'CHANGE_USER_DATA' :
+         name = action.val[0].userName;
+         let city = action.val[0].userCity;
+         return  {...state, userName: name, userCity: city}; 
+       case 'ADD_TO_FAV' :
+         action.value = [...state.userFavorites, action.payload];
+         return  {...state, userFavorites: action.value}; 
+       case 'ADD_TO_BASKET' :
+           action.value = [...state.userBasket, action.payload];
+           return  {...state, userBasket: action.value}; */
+       default:
+        return state
+      }
+    }

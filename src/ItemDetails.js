@@ -3,7 +3,7 @@ import ButtonMessage from "./ButtonMessage"
 
 //TODO: read comments
 const ItemDetails = (props) => {
-  const item = props.items.find(it => it.id === props.match.params.id);
+  const item = props.items.find(it => it.id === +props.match.params.id);
 
   return (
   <div className="ItemDetails">

@@ -11,10 +11,10 @@ const FilterPanel = (props) => {
   return (
     <aside id = "filter-panel-left" className = "hide-on-mobile">
     <div className = "catalog-filters-list">      
-        <FilterItem items={{name: "Город", data: props.filterCity}} selected = {props.filterCitySelected} onChange={() => addItem("filterCitySelected")}/>  
-        <FilterItem items={{name: "Коллекция год", data: props.filterYear}}/>
-        <FilterItem items={{name: "Цена", data: props.filterPrice}}/>   
-        <FilterItem items={{name: "С фотографией", data: props.filterWithPhoto}}/>
+        <FilterItem items={{name: "Город", data: props.filterCity}} selected = {props.filterCitySelected} onChange={(index) => addItem("filterCitySelected", index)}/>  
+        <FilterItem items={{name: "Коллекция год", data: props.filterYear}} selected = {props.filterYearSelected} onChange={(index) => addItem("filterYearSelected", index)}/>
+        <FilterItem items={{name: "Цена", data: props.filterPrice}} selected = {props.filterPriceSelected} onChange={(index) => addItem("filterPriceSelected", index)}/>   
+        <FilterItem items={{name: "С фотографией", data: props.filterWithPhoto}} selected = {props.filterWithPhotoSelected} onChange={(index) => addItem("filterWithPhotoSelected", index)}/>
     </div>
     </aside>
   );

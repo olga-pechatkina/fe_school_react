@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import ItemsComp from "./ItemsComp";
 
 //TODO: see comments
-class IndexPage extends React.Component {
+class IndexPageFurn extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,9 +50,7 @@ class IndexPage extends React.Component {
     </div>
     <div className="menu hide-on-mobile">
       <div className = "menu-item menu-item--active" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
-      <a href="/furn">
-        <div className = "menu-item">Мебель</div>
-      </a>
+      <div className = "menu-item">Мебель</div>
     </div>
     <div className = "hide-on-mobile">
       <span className = "banner"/>
@@ -79,9 +77,9 @@ class IndexPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-      items: state.clothes.items,
-      sellerName: state.clothes.sellers,
+      items: state.furniture.items,
+      sellerName: state.furniture.sellers,
   }
 }
 
-export default connect(mapStateToProps, null)(IndexPage);
+export default connect(mapStateToProps, null)(IndexPageFurn);

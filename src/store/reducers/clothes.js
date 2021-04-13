@@ -3,12 +3,12 @@ const initialState = {
   filterYear: ["2020", "2021"],
   filterPrice: ["0-1000","1000-2000","2000-3000","больше 3000"],
   filterWithPhoto: ["только с фотографией"],
-  filterCitySelected: [0,0,0],
-  filterYearSelected: [0,0],
-  filterPriceSelected: [0,0,0,0],
+  filterCitySelected: [false,false,false],
+  filterYearSelected: [false,false],
+  filterPriceSelected: [false,false,false,false],
   filterPriceMinSelected: [],
   filterPriceMaxSelected: [],      
-  filterWithPhotoSelected: false,
+  filterWithPhotoSelected: [false],
   userIsSeller: true,
   userName:'Петр Петрович',
   userCity:'Санкт-Петербург',
@@ -147,12 +147,20 @@ const initialState = {
       state.items[action.payload].price = price;      */
       return  {...state, ...state.items[id], name: name, price: price};  
     case 'ADD_FILTER' :
-      action.value = state[action.payload].splice(state[action.val], 0, !state[action.val]);
+    //  action.value = state[action.payload].map((item, id) => if)[action.val]
+      action.value = [...state[action.payload]];
+      action.value[action.val] = !action.value[action.val]    
       return {...state, 'action.payload': action.value}
     case 'CHANGE_USER_DATA' :
       name = action.val[0].userName;
       let city = action.val[0].userCity;
       return  {...state, userName: name, userCity: city}; 
+    case 'ADD_TO_FAV' :
+      action.value = [...state.userFavorites, action.payload];
+      return  {...state, userFavorites: action.value}; 
+    case 'ADD_TO_BASKET' :
+        action.value = [...state.userBasket, action.payload];
+        return  {...state, userBasket: action.value}; 
     default:
      return state
    }

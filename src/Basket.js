@@ -1,5 +1,9 @@
 import { connect } from 'react-redux'
-const Basket = (props) =>  (
+import BasketItem  from "./BasketItem"
+
+const Basket = (props) =>  {
+
+  return (
     <div className="Basket">
         <div className ="App-header__ins">
             <a href="/">
@@ -12,31 +16,12 @@ const Basket = (props) =>  (
         </div>
         <div className = "all-items-list">        
           {props.items.filter(it=> props.userBasket.find(el => el === it.id)!== undefined).map((item, index) => (
-            <div className = "item-container-list">
-              <div className = "item-list">
-                <span>         
-                    <img className="item1-list" src={item.photo} alt =""/>
-                </span>             
-              </div>
-              <div className = "item-list_info-container">
-                <div className = "item-list_name"> {item.name} </div>
-                <div className = "item-list__master-name"> { props.sellers.find(el => el.id === item.sellerId).name}</div>
-              </div>
-              <div className= "cmaster-cart-items__item-quantity">
-                  <button className="master-cart-items__item-btn master-cart-items__item-btn--minus" type="button">
-                      <span className="master-cart-items__item-icon-minus"/>
-                  </button>
-                  <input type="number" min="1" max="1000" value="1" maxlength="3" className="master-cart-items__item-quantity-counter" style={{width: "20px"}}></input>
-                  <button class="master-cart-items__item-btn master-cart-items__item-btn--plus" type="button">
-                      <span class="master-cart-items__item-icon-plus"/>
-                  </button>
-              </div>
-              <div className = "item-list__cost_basket">{item.price}</div>
-            </div>
+            <BasketItem item={item} seller ={props.sellers.find(el => el.id === item.sellerId).name}/>
               ))}
         </div>
     </div>
   )
+  }
 
   const mapStateToProps = state => {
     return {
