@@ -37,7 +37,7 @@ return(
 
 const mapStateToProps = state => {
     return {
-        userFavorites: state.clothes.userFavorites
+        userFavorites: state.user.userFavorites
     }
 }
 

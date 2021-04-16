@@ -4,8 +4,16 @@ import { useHistory } from "react-router-dom";
 const ButtonMessage = (props) => {
     const history = useHistory();
 
+    let messagePath={
+      pathname: '/message_read',
+      search: '?mode=new',
+      state: {
+        seller: true
+      }
+    }
+
     function openMessage() {
-      history.push("/message_read/null");
+      history.push(messagePath);
     }
 
     return (

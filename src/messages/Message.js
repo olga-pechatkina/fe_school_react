@@ -1,27 +1,30 @@
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const Message = (props) =>  {
-    const item = props.userMessages.find(it => it.id === +props.match.params.id);
-    const writeMode = props.match.params.id === "null"
+    let id = +new URLSearchParams(props.location.search).get('id')
+    const item = new URLSearchParams(props.location.search).get('mode') !== "new" ? props.userMessages.find(it => it.id === id) : null;
+    const sellerName = props.location.state.seller.name;
     return (
     <div className="Authorization">
         <div className ="App-header__ins">
-            <a href="/">
+            <Link to="/">
                 <div className = "logo"/>
-            </a>
-        </div>
-        <div className = "mobile-buttons">
-            <a href="/messages/null">
-            <button type="button" className="btn-rubrics-mobile-view">Ответить</button>
-            </a>
+            </Link>
         </div>
         <h1 style={{margin: "0px 5%"}}>Сообщение</h1>
+        <textarea rows="7" style={{minWidth: "320px", margin: "0px 5%", width: "auto"}} placeholder="Введите сообщение"/>
+        <div className = "mobile-buttons">
+            <Link to="/messages/null">
+            <button type="button" className="btn-rubrics-mobile-view">Ответить</button>
+            </Link>
+        </div>
         <div className = "messages-list">
             <div className = "messages-item">
                 <div className = "dialog-date">{item ? item.date : ''}</div>
                 <div className = "dialog-info">
                     <div className = "dialog-info-author">{item ? item.from : ''}</div>
-                    <div className = "dialog-info-text" contentEditable = {writeMode}>{item ? item.text : ''}</div>               
+                    <div className = "dialog-info-text">{item ? item.text : ''}</div>               
                 </div>
             </div>
         </div>
@@ -30,7 +33,7 @@ const Message = (props) =>  {
     }
     const mapStateToProps = state => {
         return {
-            userMessages: state.clothes.userMessages
+            userMessages: state.user.userMessages
         }
     }
     

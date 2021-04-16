@@ -3,6 +3,7 @@ import Itemslist from "./items/Itemslist"
 import FilterPanel from "./filters/FilterPanel"
 import { connect } from 'react-redux'
 import ItemsComp from "./ItemsComp";
+import { Link } from 'react-router-dom'
 
 //TODO: see comments
 class IndexPageFurn extends React.Component {
@@ -23,22 +24,24 @@ class IndexPageFurn extends React.Component {
     return (
   <div className="IndexPage">
     <div className ="App-header">
-      <div className = "logo"/>
+      <Link to="/">
+        <div className = "logo"/>
+      </Link>
       <div className = "contacts"/>
       <div className = "header-usermenu">
         <ul className = "header__nav-list">
           <div className = "profile header__nav-block">
             <div className = "header-btn-entry">
-              <a href="/lk">
+              <Link to="/lk">
                 <span className = "header-btn-entry__icon"/>
-              </a>
+              </Link>
             </div>
           </div>
           <li className = "header__nav-item">
             <div className = "header-basket">
-              <a href="/basket">
+              <Link to="/basket">
                <span className = "header-basket__icon"/>
-              </a>
+              </Link>
             </div>  
           </li>   
         </ul>
@@ -49,8 +52,10 @@ class IndexPageFurn extends React.Component {
       <button type="button" className="btn-rubrics-mobile-view">Фильтры</button>
     </div>
     <div className="menu hide-on-mobile">
-      <div className = "menu-item menu-item--active" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
-      <div className = "menu-item">Мебель</div>
+      <Link to="/">
+        <div className = "menu-item" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
+      </Link>
+      <div className = "menu-item menu-item--active">Мебель</div>
     </div>
     <div className = "hide-on-mobile">
       <span className = "banner"/>

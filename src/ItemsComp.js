@@ -1,13 +1,16 @@
 import Item from "./Item.js"
+import {Link} from 'react-router-dom'
 
 const ItemsComp = (props) =>   {
+
+    console.log(props.items);
 
     return(
         <div className="MyShop">
             <div className ="App-header__ins">
-                <a href="/">
+                <Link to="/">
                     <div className = "logo"/>
-                </a>
+                </Link>
                 <h1>{props.header}</h1>
             </div>
             <div className = "all-items-block-favorites">

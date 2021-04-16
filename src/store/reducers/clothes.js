@@ -9,26 +9,6 @@ const initialState = {
   filterPriceMinSelected: [],
   filterPriceMaxSelected: [],      
   filterWithPhotoSelected: [false],
-  userIsSeller: true,
-  userName:'Петр Петрович',
-  userCity:'Санкт-Петербург',
-  userFavorites:[1,5,7],
-  userItems:[2,8,3],
-  userBasket:[4,6],
-  userMessages:[{
-    id: 1,
-    date: "13 марта",
-    from: "Sewing company",
-    text: `Ваш размер есть в наличии. Рекомендуем выбрать цвет, который будет сочетаться с маджентовым.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-  },{
-    id: 2,
-    date: "14 марта",
-    from: "Clothes for you",
-    text: `Ваш размер есть в наличии. Рекомендуем выбрать цвет, который будет сочетаться с маджентовым.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-  }
-  ],
   sellers:[
       {
           id: 1,
@@ -51,7 +31,7 @@ const initialState = {
       {
         id: 1,
         name: "Кардиган",
-        sellerId: 1, //TODO: лучше не строкой. строка в id это неудобно
+        sellerId: 1,
         price: "1900",
         photo: "/item1.jpg",
         size: "44-56",
@@ -133,51 +113,19 @@ const initialState = {
 
  export default function clothes (state = initialState, action){
    switch (action.type) {
-    case 'REMOVE_FAV' :
-      action.value = state.userFavorites.filter(id => id !== action.payload);
-      return {...state, userFavorites: action.value}
-    case 'REMOVE_ITEM' :
-      action.value = state.userItems.filter(id => id !== action.payload);
-      return {...state, userItems: action.value}
     case 'CHANGE_ITEM' :
-      let name = action.val[0].name;
-      let price = action.val[0].price;
-      let id = state.items.indexOf(state.items.find(it => it.id === action.payload))
-     /* state.items[action.payload].name = name;
-      state.items[action.payload].price = price;      */
-      return  {...state, ...state.items[id], name: name, price: price};  
+      let name = action.val[0];
+      let price = action.val[1];
+      let id = state.items.indexOf(state.items.find(it => it.id === action.payload));
+      let newItem= {...state.items[id], name:name, price:price};
+      let newItems = [...state.items]
+      newItems[id] = newItem;
+      return  {...state, items: newItems};  
     case 'ADD_FILTER' :
-    //  action.value = state[action.payload].map((item, id) => if)[action.val]
       action.value = [...state[action.payload]];
       action.value[action.val] = !action.value[action.val]    
       return {...state, 'action.payload': action.value}
-    case 'CHANGE_USER_DATA' :
-      name = action.val[0].userName;
-      let city = action.val[0].userCity;
-      return  {...state, userName: name, userCity: city}; 
-    case 'ADD_TO_FAV' :
-      action.value = [...state.userFavorites, action.payload];
-      return  {...state, userFavorites: action.value}; 
-    case 'ADD_TO_BASKET' :
-        action.value = [...state.userBasket, action.payload];
-        return  {...state, userBasket: action.value}; 
     default:
      return state
    }
  }
-/*
-const Slice = createSlice({
-  name: 'marketplace',
-  initialState,
-  reducers: {
-    removefromFav(state, action) {
-      state.userFavorites = state.userFavorites.splice(state.userFavorites.find(it=>it === action.payload),1);
-    }
-  }
-})
-
-export const {removefromFav} = Slice.actions
-
-export const store = configureStore({
-  reducer: Slice.reducer
-})*/

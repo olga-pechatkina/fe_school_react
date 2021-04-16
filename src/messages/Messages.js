@@ -1,12 +1,13 @@
 import MessageItem from "./MessageItem";
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const Messages = (props) =>  (
     <div className="Authorization">
         <div className ="App-header__ins">
-            <a href="/">
+            <Link to="/">
                 <div className = "logo"/>
-            </a>
+            </Link>
         </div>
         <h1 style={{margin: "0px 5%"}}>Сообщения</h1>
         <div className = "messages-list">
@@ -19,7 +20,7 @@ const Messages = (props) =>  (
 
   const mapStateToProps = state => {
     return {
-        messages: state.clothes.userMessages
+        messages: state.user.userMessages
     }
 }
 

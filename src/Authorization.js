@@ -1,9 +1,10 @@
+import {Link} from 'react-router-dom'
 const Authorization = () =>  (
     <div className="Authorization">
         <div className ="App-header__ins">
-        <a href="/">
+        <Link to="/">
                 <div className = "logo"/>
-        </a>
+        </Link>
         </div>
         <div className = "wrapper">
             <h1>Авторизация</h1>

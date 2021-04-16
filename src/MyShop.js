@@ -15,8 +15,8 @@ const MyShop  = (props) =>  {
  
   const mapStateToProps = state => {
     return {
-      items: state.clothes.items,
-      userItems: state.clothes.userItems
+      items: [...state.clothes.items, ...state.furniture.items],
+      userItems: state.user.userItems
     }
   }
 

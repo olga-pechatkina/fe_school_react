@@ -1,8 +1,9 @@
-import React from "react";
+import React from "react"
 import Itemslist from "./items/Itemslist"
 import FilterPanel from "./filters/FilterPanel"
 import { connect } from 'react-redux'
-import ItemsComp from "./ItemsComp";
+import ItemsComp from "./ItemsComp"
+import {Link} from 'react-router-dom'
 
 //TODO: see comments
 class IndexPage extends React.Component {
@@ -29,16 +30,16 @@ class IndexPage extends React.Component {
         <ul className = "header__nav-list">
           <div className = "profile header__nav-block">
             <div className = "header-btn-entry">
-              <a href="/lk">
+              <Link to="/lk">
                 <span className = "header-btn-entry__icon"/>
-              </a>
+              </Link>
             </div>
           </div>
           <li className = "header__nav-item">
             <div className = "header-basket">
-              <a href="/basket">
-               <span className = "header-basket__icon"/>
-              </a>
+              <Link to="/basket">
+                <span className = "header-basket__icon"/>
+              </Link>
             </div>  
           </li>   
         </ul>
@@ -49,10 +50,12 @@ class IndexPage extends React.Component {
       <button type="button" className="btn-rubrics-mobile-view">Фильтры</button>
     </div>
     <div className="menu hide-on-mobile">
-      <div className = "menu-item menu-item--active" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
-      <a href="/furn">
+      <Link to="/">
+        <div className = "menu-item menu-item--active" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
+      </Link>  
+      <Link to="/furn">
         <div className = "menu-item">Мебель</div>
-      </a>
+      </Link>
     </div>
     <div className = "hide-on-mobile">
       <span className = "banner"/>

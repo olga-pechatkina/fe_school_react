@@ -8,6 +8,8 @@ const Favorites = (props) =>  {
       props.handleAction("REMOVE_FAV", id);
     };
 
+    console.log(props.items);
+
     return(
     <ItemsComp items={props.items.filter(it=> props.userFavorites.find(el => el === it.id)!== undefined)} header = "Избранное" onChange={_changeFav}/>
     )
@@ -15,8 +17,8 @@ const Favorites = (props) =>  {
 
   const mapStateToProps = state => {
     return {
-      items: state.clothes.items,
-      userFavorites: state.clothes.userFavorites
+      items: [...state.clothes.items, ...state.furniture.items],
+      userFavorites: state.user.userFavorites
     }
   }
 

@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 import BasketItem  from "./BasketItem"
+import {Link} from 'react-router-dom'
 
 const Basket = (props) =>  {
 
   return (
     <div className="Basket">
         <div className ="App-header__ins">
-            <a href="/">
+            <Link to="/">
                 <div className = "logo"/>
-            </a>
+            </Link>
             <h1>Корзина</h1>
             <div  style = {{textAlign: "right"}}>
                 <button type="button" className="btn-rubrics-mobile-view">Оформить покупку</button>
@@ -16,7 +17,7 @@ const Basket = (props) =>  {
         </div>
         <div className = "all-items-list">        
           {props.items.filter(it=> props.userBasket.find(el => el === it.id)!== undefined).map((item, index) => (
-            <BasketItem item={item} seller ={props.sellers.find(el => el.id === item.sellerId).name}/>
+            <BasketItem item={item} seller ={props.sellers.find(el => el.id === item.sellerId).name} key={index + '--' + index}/>
               ))}
         </div>
     </div>
@@ -25,9 +26,9 @@ const Basket = (props) =>  {
 
   const mapStateToProps = state => {
     return {
-      userBasket: state.clothes.userBasket,
-      items: state.clothes.items,
-      sellers: state.clothes.sellers
+      userBasket: state.user.userBasket,
+      items: [...state.clothes.items, ...state.furniture.items],
+      sellers: [...state.clothes.sellers,...state.furniture.sellers]
     }
   }
   

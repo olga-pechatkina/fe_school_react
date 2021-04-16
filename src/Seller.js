@@ -1,26 +1,30 @@
 import { connect } from 'react-redux'
 import ButtonMessage from "./ButtonMessage"
+import {Link} from 'react-router-dom'
 
-const Seller = (props) =>  (
+const Seller = (props) =>  {
+  let seller=props.sellers.find(el => el.id === +props.match.params.id);
+  
+  return (
     <div className="Seller">
       <div className ="App-header__ins">
-        <a href="/">
+        <Link to="/">
             <div className = "logo"/>
-        </a>
+        </Link>
         <div className = "header-usermenu">
           <ul className = "header__nav-list">
             <div className = "profile header__nav-block">
               <div className = "header-btn-entry">
-                <a href="/favorites">
+                <Link to="/favorites">
                     <span className = "item-lk__favorite"/>
-                </a>
+                </Link>
               </div>
             </div>
             <li className = "header__nav-item">
               <div className = "header-basket">
-                <a href="/basket">
+                <Link to="/basket">
                     <span className = "header-basket__icon"/>
-                </a>
+                </Link>
               </div>  
             </li>   
           </ul>
@@ -29,27 +33,28 @@ const Seller = (props) =>  (
             {/* вот эта кнопка используется несколько раз. предлагаю ее и аналогничные ей вынести в отдельный компонент
         + кнопка внутри ссылки - плохо. у тебя есть возможность написать обработчик onClick, в который передать любой код,
          в том числе и редирект с параметром */}
-          <ButtonMessage/>
+          <ButtonMessage seller={seller}/>
         </div>
       </div>
       <div className = "info-LK">
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Продавец:</div>
-              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === +props.match.params.id)?.name}</div>
+              <div className = "info-LK-item-right">{seller?.name}</div>
           </div>
           <hr className = "line"/>
           <div className = "info-LK-item">
               <div className = "info-LK-item-left">Город:</div>
-              <div className = "info-LK-item-right">{props.sellers.find(el => el.id === +props.match.params.id)?.city}</div>
+              <div className = "info-LK-item-right">{seller?.city}</div>
           </div>
           <hr className = "line"/>
       </div>
     </div>
     )
+        }
 
     const mapStateToProps = state => {
       return {
-        sellers: state.clothes.sellers,
+        sellers: [...state.clothes.sellers,...state.furniture.sellers]
       }
     }
     

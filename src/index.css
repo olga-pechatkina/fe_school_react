@@ -281,12 +281,12 @@ code {
 }
 
 .item1 {
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 200px;
-    background-position: center;
-    display: flex;
-    width: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 200px;
+  background-position: center;
+  display: flex;
+  width: 200px;
 }
 
 .item1-list {
@@ -767,13 +767,13 @@ code {
 }
 
 /*@media only screen and (max-width: 1279px){*/
-  .header-btn-entry__icon {
-      width: 24px;
-      margin-bottom: 0px;
-  }
-  .header-basket__icon {
+.header-btn-entry__icon {
     width: 24px;
-    height: 21px;
+    margin-bottom: 0px;
+}
+.header-basket__icon {
+  width: 24px;
+  height: 21px;
 }
 .auth-row{
   margin: 20px 0px;
