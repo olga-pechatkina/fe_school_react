@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom'
 
 const Message = (props) =>  {
     let id = +new URLSearchParams(props.location.search).get('id')
-    const item = new URLSearchParams(props.location.search).get('mode') !== "new" ? props.userMessages.find(it => it.id === id) : null;
-    const sellerName = props.location.state.seller.name;
+    let mode = new URLSearchParams(props.location.search).get('mode');
+    const item =  mode !== "new" ? props.userMessages.find(it => it.id === id) : null;
+    const sellerName = props.location.state ? props.location.state.seller.name : null;
     return (
     <div className="Authorization">
         <div className ="App-header__ins">
@@ -16,7 +17,8 @@ const Message = (props) =>  {
         <textarea rows="7" style={{minWidth: "320px", margin: "0px 5%", width: "auto"}} placeholder="Введите сообщение"/>
         <div className = "mobile-buttons">
             <Link to="/messages/null">
-            <button type="button" className="btn-rubrics-mobile-view">Ответить</button>
+                {mode==="answer"&& <button type="button" className="btn-rubrics-mobile-view">Ответить</button>}
+                {mode==="new"&& <button type="button" className="btn-rubrics-mobile-view">Написать</button>}
             </Link>
         </div>
         <div className = "messages-list">

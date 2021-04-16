@@ -4,9 +4,6 @@ const MessageItem = (props) => {
     let messagePath={
         pathname: '/message_read',
         search: '?mode=answer&id='+props.item.id,
-        state: {
-          seller: true
-        }
       }
     return (
         <div className = "messages-item">
