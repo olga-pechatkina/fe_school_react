@@ -5,6 +5,7 @@ import Authorization from './Authorization'
 import LK from './LK'
 import Messages from './messages/Messages'
 import Message from './messages/Message'
+import MessageSent from './messages/MessageSent'
 import Basket from './basket/Basket'
 import MyShop from './MyShop'
 import Seller from './Seller'
@@ -40,6 +41,7 @@ function App() {
         <Route exact path='/seller/:id' component={Seller}/>
         <Route exact path='/favorites' component={Favorites}/>
         <Route exact path='/details/:id' component={ItemDetails}/>
+        <Route exact path='/message_sent' component={MessageSent}/>        
         <Route component={notFound}/>
       </Switch>
     </BrowserRouter>

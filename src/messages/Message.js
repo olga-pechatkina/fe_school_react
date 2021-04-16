@@ -16,9 +16,9 @@ const Message = (props) =>  {
         <h1 style={{margin: "0px 5%"}}>Сообщение</h1>
         <textarea rows="7" style={{minWidth: "320px", margin: "0px 5%", width: "auto"}} placeholder="Введите сообщение"/>
         <div className = "mobile-buttons">
-            <Link to="/messages/null">
-                {mode==="answer"&& <button type="button" className="btn-rubrics-mobile-view">Ответить</button>}
-                {mode==="new"&& <button type="button" className="btn-rubrics-mobile-view">Написать</button>}
+            <Link to="/message_sent">
+                { mode==="answer" && <button type="button" className="btn-rubrics-mobile-view">Ответить</button> }
+                { mode==="new" && <button type="button" className="btn-rubrics-mobile-view">Написать</button> }
             </Link>
         </div>
         <div className = "messages-list">
