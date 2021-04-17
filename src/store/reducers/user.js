@@ -4,7 +4,7 @@ const initialState = {
     userCity:'Санкт-Петербург',
     userFavorites:[1,5,7,10],
     userItems:[2,8,3,11],
-    userBasket:[4,6,12],
+    userBasket:[4,6,12,12],
     userMessages:[{
       id: 1,
       date: "13 марта",
@@ -36,8 +36,12 @@ const initialState = {
         action.value = [...state.userFavorites, action.payload];
         return  {...state, userFavorites: action.value}; 
       case 'ADD_TO_BASKET' :
-          action.value = [...state.userBasket, action.payload];
-          return  {...state, userBasket: action.value}; 
+        action.value = [...state.userBasket, action.payload];
+        return  {...state, userBasket: action.value}; 
+      case 'REM_FROM_BASKET' :
+        let id = state.userBasket.indexOf(action.payload);
+        state.userBasket.splice(id, 1);
+        return  {...state, userBasket: state.userBasket}; 
       default:
        return state
      }

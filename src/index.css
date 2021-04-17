@@ -997,6 +997,17 @@ input:read-only{
   border:none
 }
 
+.flex-column{
+  display: flex; 
+  flex-direction: column;
+}
+
+.flex-row{
+  display: flex; 
+  flex-direction: row;
+  margin: 5px 0px;
+}
+
 @media only screen and (max-width: 767px){
 .logo {
     width: 90px;
