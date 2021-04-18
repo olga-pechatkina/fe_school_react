@@ -717,15 +717,14 @@ code {
 .master-cart-items__item-quantity-counter {
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #b4b4b4;
-  border-radius: 2px;
+  border: none;
   line-height: 28px;
   height: 28px;
   font-size: 14px;
   color: #333;
   text-align: center;
   padding: 0 12px;
-  width: 41px;
+  width: 7px;
 }
 
 .master-cart-items__item-btn--plus {
@@ -760,10 +759,8 @@ code {
 
 .item-list__cost_basket{
   width: 100px;
-  font-size: 12px;
   display: flex;
   justify-content: center;
-  font-weight: 600;
 }
 
 /*@media only screen and (max-width: 1279px){*/

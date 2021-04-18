@@ -8,6 +8,7 @@ const Basket = (props) =>  {
   let basketItems= props.items.filter(it=> props.userBasket.find(el => el === it.id)!== undefined);
   const [commonCount, setCount] = useState(0);
   const [commonPrice, setPrice] = useState(0);  
+  const [orderReady, setorderReady] = useState(false);  
 
   function countItems(){
     let count=0,price=0;
@@ -59,7 +60,8 @@ const Basket = (props) =>  {
             <textarea placeholder="Телефон" cols="30" style={{marginRight: "10px"}}></textarea>  
             <textarea placeholder="Email" cols="40"></textarea>
           </div>
-          <button type="button" className="btn-rubrics-mobile-view">Оформление заказа</button>    
+          <button type="button" className="btn-rubrics-mobile-view" onClick={()=>setorderReady(true)}>Оформление заказа</button>
+          { orderReady && <div style={{marginTop: "6px"}}>Наши операторы свяжутся с вами для оформления заказа</div>}
         </div>
     </div>
   )

@@ -37,12 +37,12 @@ const BasketItem = (props) => {
                 <button className="master-cart-items__item-btn master-cart-items__item-btn--minus" type="button" onClick={()=>removeFromBasket(props.item.id)}>
                     <span className="master-cart-items__item-icon-minus"/>
                 </button>
-                <input type="number" min="1" max="1000" value={quantity} maxLength="3" className="master-cart-items__item-quantity-counter" style={{width: "20px"}}></input>
+                <input type="text" value={quantity} maxLength="3" className="master-cart-items__item-quantity-counter"></input>
                 <button className="master-cart-items__item-btn master-cart-items__item-btn--plus" onClick={()=>addToBasket(props.item.id)} type="button">
                     <span className="master-cart-items__item-icon-plus"/>
                 </button>
             </div>
-            <div className = "item-list__cost_basket">{props.item.price}</div>
+            <div className = "master-cart-items__item-quantity-counter">{props.item.price}</div>
       </div>
     )
 }
