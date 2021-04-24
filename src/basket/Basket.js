@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import BasketItem  from "./BasketItem"
-import {Link} from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import React, { useEffect, useState } from 'react';
 
 const Basket = (props) =>  {
@@ -9,6 +9,11 @@ const Basket = (props) =>  {
   const [commonCount, setCount] = useState(0);
   const [commonPrice, setPrice] = useState(0);  
   const [orderReady, setorderReady] = useState(false);  
+  const history = useHistory();
+
+  let messagePath={
+      pathname: '/'
+    }
 
   function countItems(){
     let count=0,price=0;
@@ -29,6 +34,11 @@ const Basket = (props) =>  {
     countItems();
   });
 
+  function makeanOrder() {
+    setorderReady(true);
+    history.push(messagePath);
+  }
+
   return (
     <div className="Basket">
         <div className ="App-header__ins">
@@ -43,7 +53,7 @@ const Basket = (props) =>  {
               ))}
         </div>
         <div className ="App-header__ins flex-column">
-          <h3>Ваша корзина</h3>
+          <h3  style={{marginTop: "50px"}}>Общая информация</h3>
           <div className ="flex-row">
             <div style={{flexBasis: "60%"}}>Товары({commonCount})</div>
             <div style={{flexBasis: "40%"}}>{commonPrice}</div>
@@ -57,10 +67,10 @@ const Basket = (props) =>  {
             <div style={{flexBasis: "40%"}}>{commonPrice+250}</div>
           </div>
           <div className ="flex-row">
-            <textarea placeholder="Телефон" cols="30" style={{marginRight: "10px"}}></textarea>  
-            <textarea placeholder="Email" cols="40"></textarea>
+            <input type="tel"  placeholder="Телефон" style={{marginRight: "10px"}}></input>  
+            <input type="email" placeholder="Почта" cols="40"></input>
           </div>
-          <button type="button" className="btn-rubrics-mobile-view" onClick={()=>setorderReady(true)}>Оформление заказа</button>
+          <button type="button" className="btn-rubrics-mobile-view" onClick={makeanOrder}>Оформление заказа</button>
           { orderReady && <div style={{marginTop: "6px"}}>Наши операторы свяжутся с вами для оформления заказа</div>}
         </div>
     </div>

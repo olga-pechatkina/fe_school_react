@@ -5,11 +5,10 @@ import ItemListView from "./item-listview";
 
 const Itemslist = (props) =>  {
     const [mode, setMode] = useState(0);
-//TODO: read comments
-    /** <div className="item-container"...> и <div className = "item-container-list"> должны быть в данном случае отдельными компонентами,
-     *   тк. их тут может быть > 1. У этих компонентов должен быть проп key с уникальным значением.
-     *  Можно использовать как один из компонентов этого значения index
-     **/
+        // useEffect(() => {
+    //   props.filterStore();
+    // }, [props.selectedFilters])
+
 return(
     <div className = "all-items">
         <div className = "filter-type">
@@ -24,7 +23,6 @@ return(
             />))}
         </div>)}
         {(mode===1) && (<div className = "all-items-list">
-            {/* аналогично с ItemContainer, можно название для компонента поумнее придумать. Я тут только примеры привожу :)*/}
             {props.items.map((item, index) => (<ItemListView item={item}
                                sellerName={props.sellerName.find(el => el.id === item.sellerId).name}
                                key={index + '--' + index}
@@ -37,7 +35,8 @@ return(
 
 const mapStateToProps = state => {
     return {
-        userFavorites: state.user.userFavorites
+        userFavorites: state.user.userFavorites,
+        selectedFilters: state.clothes.selectedFilters
     }
 }
 

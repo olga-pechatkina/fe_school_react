@@ -13,7 +13,7 @@ const Message = (props) =>  {
                 <div className = "logo"/>
             </Link>
         </div>
-        <h1 style={{margin: "0px 5%"}}>Сообщение</h1>
+        <h1 style={{margin: "20px 5%"}}>Сообщение</h1>
         <textarea rows="7" style={{minWidth: "320px", margin: "0px 5%", width: "auto"}} placeholder="Введите сообщение"/>
         <div className = "mobile-buttons">
             <Link to="/message_sent">

@@ -1,27 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Itemslist from "./items/Itemslist"
 import FilterPanel from "./filters/FilterPanel"
 import { connect } from 'react-redux'
-import ItemsComp from "./ItemsComp"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { handleAction } from "./store/actions/index"
 
 //TODO: see comments
-class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
+const IndexPage = (props) => {
 
-    this.state = {
-      filterCity: "",
-      filterYear: "",
-      filterPrice: "",
-      filterPriceMin: "",
-      filterPriceMax: "",      
-      filterWithPhoto: false,
-    };
-  }
+  useEffect(() => {
+    props.handleAction("STORE_FILTER", props.selectedFilters);
+  }, [props.selectedFilters])
 
-  render() {
-    return (
+return (
   <div className="IndexPage">
     <div className ="App-header">
       <div className = "logo"/>
@@ -61,22 +52,14 @@ class IndexPage extends React.Component {
       <span className = "banner"/>
     </div>
     <div className = "catalog">
-
-      {/* весь блок выносим как компонент FilterPanel или что-то в этом духе.
-          Нужно заменить чекбоксы на радиогруппу там, где преполагается исключающий выбор. Если выбор множественный, можно оставить чекбоксы.
-       */}
       <FilterPanel/>
-      {/* давай тут попробуем красиво сделать. я сама с редаксом в бою дело не имела, но, раз уж в программе есть...
-      https://redux.js.org/tutorials/fundamentals/part-7-standard-patterns у них тут есть пример с фильтрами */}
       <Itemslist
-          items={this.props.items.filter(item => (!this.state.filterYear || (this.state.filterYear && item.year === this.state.filterYear)) &&
-        (!this.state.filterPrice || (this.state.filterPriceMin < item.price && (this.state.filterPriceMax > item.price || this.state.filterPriceMax === null))))}
-        sellerName={this.props.sellerName}
+        items={props.items}
+        sellerName ={props.sellerName}
       />
     </div>
   </div>
 );
-}
 }
 
 
@@ -84,7 +67,12 @@ const mapStateToProps = state => {
   return {
       items: state.clothes.items,
       sellerName: state.clothes.sellers,
+      selectedFilters: state.filters.selectedFilters
   }
 }
 
-export default connect(mapStateToProps, null)(IndexPage);
+const mapDispatchToProps ={
+  handleAction,
+}
+
+export default connect(mapStateToProps,  mapDispatchToProps, null)(IndexPage);

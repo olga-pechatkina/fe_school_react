@@ -26,7 +26,8 @@ const initialState = {
           photo: "/furn1.jpg",
           size: "300-700",
           fabric: "дерево",
-          year: "2020"
+          year: "2020",
+          city: "Санкт-Петербург"
         },
         {
           id: 10,
@@ -36,7 +37,8 @@ const initialState = {
           photo: "/furn2.jpg",
           size: "1000-300",
           fabric: "дерево",
-          year: "2021"
+          year: "2021",
+          city: "Санкт-Петербург"
         },    
         {
           id: 11,
@@ -46,7 +48,8 @@ const initialState = {
           photo: "/furn3.jpg",
           size: "300-1300",
           fabric: "дерево",
-          year: "2020"
+          year: "2020",
+          city: "Москва"
         },   
         {
           id: 12,
@@ -56,7 +59,8 @@ const initialState = {
           photo: "/furn4.jpg",
           size: "300-600",
           fabric: "дерево",
-          year: "2020"
+          year: "2020",
+          city: "Екатеринбург"
         },
         {
           id: 13,
@@ -66,7 +70,8 @@ const initialState = {
           photo: "/furn5.jpg",
           size: "500-1500",
           fabric: "ткань",
-          year: "2019"
+          year: "2019",
+          city: "Москва"
         },
         {
           id: 14,
@@ -76,7 +81,8 @@ const initialState = {
           photo: "/furn6.jpg",
           size: "2000-1500",
           fabric: "ткань",
-          year: "2020"
+          year: "2020",
+          city: "Екатеринбург"
         },
         {
           id: 15,
@@ -86,7 +92,8 @@ const initialState = {
           photo: "/furn7.jpg",
           size: "400-1500",
           fabric: "дерево",
-          year: "2020"
+          year: "2020",
+          city: "Санкт-Петербург"
         },
         {
           id: 16,
@@ -96,9 +103,24 @@ const initialState = {
           photo: "/furn8.jpg",
           size: "2000-1000",
           fabric: "дерево",
-          year: "2020"
+          year: "2020",
+          city: "Москва"
         },
       ]
+    }
+
+    const filterState = (items, filters) => {
+      let tempItems = items;
+      if (filters['city'].length > 0){
+        tempItems = items.filter(item => (filters['city'].includes(item.city)));
+      }
+      if (filters['year'].length > 0){
+        tempItems = tempItems.filter(item => (filters['year'].includes(item.year)));
+      }
+      if (filters['withPhoto'].length > 0){
+        tempItems = tempItems.filter(item => item.photo);
+      }
+      return tempItems
     }
 
     export default function furniture (state = initialState, action){
@@ -111,11 +133,12 @@ const initialState = {
           let newItems = [...state.items]
           newItems[id] = newItem;
           return  {...state, items: newItems};  
-        case 'ADD_FILTER' :
-        //  action.value = state[action.payload].map((item, id) => if)[action.val]
-          action.value = [...state[action.payload]];
-          action.value[action.val] = !action.value[action.val]    
-          return {...state, 'action.payload': action.value}
+        case 'STORE_FILTER' :
+          const tempItems = filterState(initialState.items, action.payload);
+          return{
+            ...state,
+            items: tempItems
+          }     
         default:
           return state
       }

@@ -32,16 +32,11 @@ const ItemDetails = (props) => {
           </ul>
         </div>  
         <div style={{top: "5px", position: "relative", textAlign: "right"}}>
-        {/* вот эта кнопка используется несколько раз. предлагаю ее и аналогничные ей вынести в отдельный компонент
-        + кнопка внутри ссылки - плохо. у тебя есть возможность написать обработчик onClick, в который передать любой код,
-         в том числе и редирект*/}
           <ButtonMessage seller ={seller}/>
         </div>
       </div>
       <span>
-        {/*  если мы по какой-то причине не передаем сюда ничего, но имеем возможность попасть в этот раздел,
-        предлагю проверять на пустоту и выводить сообщение об ошибке или хотя бы добавить оператор опц. послед-ти */}
-        <img className="item1" style={{padding: "6px 0px", margin: "0px 5%"}} src={item?.photo} alt =""/>
+        <img className="item-big" style={{padding: "6px 0px", margin: "20px 5%"}} src={item?.photo} alt =""/>
       </span> 
       <div className = "info-LK">
           <div className = "info-LK-item">
