@@ -1,4 +1,13 @@
 const initialState = {
+  filterCity: ["Москва", "Санкт-Петербург", "Екатеринбург"],
+  filterYear: ["2020", "2021"],
+  filterWithPhoto: ["только с фотографией"],
+  selectedFilters: {
+    city: [],
+    year: [],
+    price: [],
+    withPhoto: [],
+  },
     sellers:[
         {
             id: 4,
@@ -120,6 +129,9 @@ const initialState = {
       if (filters['withPhoto'].length > 0){
         tempItems = tempItems.filter(item => item.photo);
       }
+      if (filters['price'].length === 2){
+        tempItems = tempItems.filter(item => item.price > filters['price'][0] && item.price < filters['price'][1]);
+      }
       return tempItems
     }
 
@@ -133,12 +145,41 @@ const initialState = {
           let newItems = [...state.items]
           newItems[id] = newItem;
           return  {...state, items: newItems};  
+
         case 'STORE_FILTER' :
-          const tempItems = filterState(initialState.items, action.payload);
+          const tempItems = filterState(initialState.items, state.selectedFilters);
           return{
             ...state,
             items: tempItems
-          }     
+          }
+
+        case 'HANDLE_FILTER':
+          if (action.store === "furniture") {
+          let filters = state.selectedFilters[action.name];
+          if (filters.includes(action.value)){
+            filters = filters.filter(item => item !== action.value)
+          } else {
+            filters.push(action.value)
+          }
+          const selectedFilters = { ...state.selectedFilters, [action.name]: filters }
+          return{
+            ...state,
+            selectedFilters: selectedFilters
+          }
+        }
+        return state;
+    
+        case 'HANDLE_FILTER_NUM':
+          if (action.store === "furniture") {
+            let filtersNum = action.value
+            const selectedFiltersNum = { ...state.selectedFilters, [action.name]: filtersNum }
+            return{
+              ...state,
+              selectedFilters: selectedFiltersNum,
+            }
+          }
+        return state;
+
         default:
           return state
       }

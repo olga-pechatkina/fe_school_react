@@ -52,7 +52,7 @@ return (
       <span className = "banner"/>
     </div>
     <div className = "catalog">
-      <FilterPanel/>
+      <FilterPanel store="clothes" selectedFilters={props.selectedFilters}/>
       <Itemslist
         items={props.items}
         sellerName ={props.sellerName}
@@ -67,7 +67,7 @@ const mapStateToProps = state => {
   return {
       items: state.clothes.items,
       sellerName: state.clothes.sellers,
-      selectedFilters: state.filters.selectedFilters
+      selectedFilters: state.clothes.selectedFilters
   }
 }
 

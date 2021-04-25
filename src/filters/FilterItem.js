@@ -1,4 +1,3 @@
-//check is we need in selected props.selected
 const FilterItem = (props) => {
 
     return (

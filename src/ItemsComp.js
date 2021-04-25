@@ -1,9 +1,7 @@
 import Item from "./Item.js"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ItemsComp = (props) =>   {
-
-    console.log(props.items);
 
     return(
         <div className="MyShop">

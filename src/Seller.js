@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ButtonMessage from "./ButtonMessage"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Seller = (props) =>  {
   let seller=props.sellers.find(el => el.id === +props.match.params.id);
@@ -30,9 +30,6 @@ const Seller = (props) =>  {
           </ul>
         </div>  
         <div style={{top: "5px", position: "relative", textAlign: "right"}}>
-            {/* вот эта кнопка используется несколько раз. предлагаю ее и аналогничные ей вынести в отдельный компонент
-        + кнопка внутри ссылки - плохо. у тебя есть возможность написать обработчик onClick, в который передать любой код,
-         в том числе и редирект с параметром */}
           <ButtonMessage seller={seller}/>
         </div>
       </div>

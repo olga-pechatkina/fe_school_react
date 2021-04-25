@@ -6,10 +6,6 @@ import { Link } from 'react-router-dom'
 const LK = (props) =>  {
 
   const [_editable, setEditable] = useState(false);
-  /*const [data, setData] = useState({
-    userName: props.userName,
-    userCity: props.userCity
-    });*/
 
   const userName = React.useRef();
   const userCity = React.useRef(); 

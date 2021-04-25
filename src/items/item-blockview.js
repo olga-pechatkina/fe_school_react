@@ -3,7 +3,7 @@ import FavButton from './FavButton'
 import BasketButton from './BasketButton'
 import { connect } from 'react-redux'
 import { handleAction } from "./../store/actions/index"
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ItemBlockView = (props) =>{
 

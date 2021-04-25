@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import ButtonMessage from "./ButtonMessage"
 import {Link} from 'react-router-dom'
 
-//TODO: read comments
 const ItemDetails = (props) => {
   const item = props.items.find(it => it.id === +props.match.params.id);
   const seller = props.sellers.find(el => el.id === item?.sellerId);

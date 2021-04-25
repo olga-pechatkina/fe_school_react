@@ -5,9 +5,6 @@ import ItemListView from "./item-listview";
 
 const Itemslist = (props) =>  {
     const [mode, setMode] = useState(0);
-        // useEffect(() => {
-    //   props.filterStore();
-    // }, [props.selectedFilters])
 
 return(
     <div className = "all-items">

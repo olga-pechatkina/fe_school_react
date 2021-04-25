@@ -1,4 +1,5 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 const MessageSent = (props) =>  (
     <div className="Authorization">
         <div className ="App-header__ins">

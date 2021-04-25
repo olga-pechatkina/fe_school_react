@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -14,7 +14,6 @@ const Authorization = () =>  {
       }
 
     function Enter(){
-        console.log(name);
         return axios.post("http://localhost:3001/login", {username: name.current.value,
             password: password.current.value}).then(()=>history.push(messagePath));
     }

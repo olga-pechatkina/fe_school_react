@@ -2,9 +2,9 @@ const initialState = {
     userIsSeller: true,
     userName:'Петр Петрович',
     userCity:'Санкт-Петербург',
-    userFavorites:[1,5,7,10],
-    userItems:[2,8,3,11],
-    userBasket:[4,6,12,12],
+    userFavorites:[1, 5, 7, 10],
+    userItems:[2, 8, 3, 11],
+    userBasket:[4, 6, 12, 12],
     userMessages:[{
       id: 1,
       date: "13 марта",

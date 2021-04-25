@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const IndexPageFurn = (props) => {
   
   useEffect(() => {
-    props.handleAction("STORE_FILTER", props.selectedFilters);
+    props.handleAction("STORE_FILTER");
   }, [props.selectedFilters])
 
   return (
@@ -51,7 +51,7 @@ const IndexPageFurn = (props) => {
         <span className = "banner"/>
       </div>
       <div className = "catalog">
-        <FilterPanel/>
+        <FilterPanel store="furniture" selectedFilters={props.selectedFilters}/>
         <Itemslist
           items={props.items}
           sellerName ={props.sellerName}
@@ -65,7 +65,7 @@ const mapStateToProps = state => {
   return {
     items: state.furniture.items,
     sellerName: state.furniture.sellers,
-    selectedFilters: state.filters.selectedFilters
+    selectedFilters: state.furniture.selectedFilters
   }
 }
 

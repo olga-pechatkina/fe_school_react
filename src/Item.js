@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux'
 import { handleAction } from "./store/actions/index"
-//TODO: см комменты
+
 const Item = (props) => {
     const [_editable, setEditable] = useState(false);
 
