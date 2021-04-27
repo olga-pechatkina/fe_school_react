@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
 import ButtonMessage from "./ButtonMessage"
 import {Link} from 'react-router-dom'
+import { handleAction } from "./store/actions/index"
 
 const ItemDetails = (props) => {
   const item = props.items.find(it => it.id === +props.match.params.id);
   const seller = props.sellers.find(el => el.id === item?.sellerId);
+
+  function addToBasket(){
+    props.handleAction("ADD_TO_BASKET", item.id);
+  }
 
   return (
   <div className="ItemDetails">
@@ -31,6 +36,7 @@ const ItemDetails = (props) => {
           </ul>
         </div>  
         <div style={{top: "5px", position: "relative", textAlign: "right"}}>
+          <button type="button" className="btn-rubrics-mobile-view_seller" onClick={addToBasket} style={{marginRight: "10px"}}>Добавить в корзину</button>
           <ButtonMessage seller ={seller}/>
         </div>
       </div>
@@ -61,12 +67,17 @@ const ItemDetails = (props) => {
     </div>
   );
 }
-    const mapStateToProps = state => {
-      return {
-          items: [...state.clothes.items, ...state.furniture.items],
-          sellers: [...state.clothes.sellers, ...state.furniture.sellers],
-      }
+
+const mapStateToProps = state => {
+  return {
+      items: [...state.clothes.items, ...state.furniture.items],
+      sellers: [...state.clothes.sellers, ...state.furniture.sellers],
   }
-  
-  export default connect(mapStateToProps, null)(ItemDetails);
+}
+
+const mapDispatchToProps ={
+  handleAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, null)(ItemDetails);
     

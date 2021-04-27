@@ -21,7 +21,7 @@ const Item = (props) => {
     <div className = "item-container">
         <div className = "item-block">
             <span>         
-                <img className="item1" src={props.item.photo} alt =""/>
+                <img className="item1" src={props.item.photo ? props.item.photo : '/nopic.png'} alt =""/>
             </span>            
         </div>
         {props.editable && <button className = "item-block__edit" title = "Редактировать" onClick={() => setEditable(!_editable)}/>}

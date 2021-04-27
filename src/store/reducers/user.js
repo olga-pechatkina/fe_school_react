@@ -2,6 +2,7 @@ const initialState = {
     userIsSeller: true,
     userName:'Петр Петрович',
     userCity:'Санкт-Петербург',
+    userToken:'',
     userFavorites:[1, 5, 7, 10],
     userItems:[2, 8, 3, 11],
     userBasket:[4, 6, 12, 12],
@@ -41,7 +42,10 @@ const initialState = {
       case 'REM_FROM_BASKET' :
         let id = state.userBasket.indexOf(action.payload);
         state.userBasket.splice(id, 1);
-        return  {...state, userBasket: state.userBasket}; 
+        return  {...state, userBasket: state.userBasket};
+      case 'SET_TOKEN' :
+        let token = action.payload;
+        return {...state, userToken: token}
       default:
        return state
      }

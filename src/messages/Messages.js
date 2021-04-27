@@ -11,9 +11,9 @@ const Messages = (props) =>  (
         </div>
         <h1 style={{margin: "0px 5%"}}>Сообщения</h1>
         <div className = "messages-list">
-        {props.messages.map((item, index) => 
-            <MessageItem item = {item} key={index.toString() + '--' + index}/>
-        )}
+            {props.messages.map((item, index) => 
+                <MessageItem item = {item} key={index.toString() + '--' + index}/>
+            )}
         </div>
     </div>
   )

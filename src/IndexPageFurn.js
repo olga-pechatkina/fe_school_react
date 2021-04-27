@@ -22,9 +22,12 @@ const IndexPageFurn = (props) => {
           <ul className = "header__nav-list">
             <div className = "profile header__nav-block">
               <div className = "header-btn-entry">
-                <Link to="/lk">
+                {props.token && <Link to="/lk">
                   <span className = "header-btn-entry__icon"/>
-                </Link>
+                </Link>}
+                {!props.token && <Link to="/auto">
+                  <span className = "header-btn-entry__icon"/>
+                </Link>}
               </div>
             </div>
             <li className = "header__nav-item">
@@ -65,7 +68,8 @@ const mapStateToProps = state => {
   return {
     items: state.furniture.items,
     sellerName: state.furniture.sellers,
-    selectedFilters: state.furniture.selectedFilters
+    selectedFilters: state.furniture.selectedFilters,
+    token: state.user.userToken
   }
 }
 

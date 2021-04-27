@@ -21,9 +21,12 @@ return (
         <ul className = "header__nav-list">
           <div className = "profile header__nav-block">
             <div className = "header-btn-entry">
-              <Link to="/lk">
+              {props.token && <Link to="/lk">
                 <span className = "header-btn-entry__icon"/>
-              </Link>
+              </Link>}
+              {!props.token && <Link to="/auto">
+                <span className = "header-btn-entry__icon"/>
+              </Link>}
             </div>
           </div>
           <li className = "header__nav-item">
@@ -41,9 +44,7 @@ return (
       <button type="button" className="btn-rubrics-mobile-view">Фильтры</button>
     </div>
     <div className="menu hide-on-mobile">
-      <Link to="/">
-        <div className = "menu-item menu-item--active" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
-      </Link>  
+      <div className = "menu-item menu-item--active" style = {{marginRight: "12px"}}>Одежда и аксессуары</div>
       <Link to="/furn">
         <div className = "menu-item">Мебель</div>
       </Link>
@@ -67,7 +68,8 @@ const mapStateToProps = state => {
   return {
       items: state.clothes.items,
       sellerName: state.clothes.sellers,
-      selectedFilters: state.clothes.selectedFilters
+      selectedFilters: state.clothes.selectedFilters,
+      token: state.user.userToken
   }
 }
 

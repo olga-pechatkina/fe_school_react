@@ -19,7 +19,7 @@ const ItemBlockView = (props) =>{
         <div className = "item-block">
                     <span>
                     <Link to={"/details/" + props.item.id}>
-                        <img className="item1" src={props.item.photo} alt =""/>
+                        <img className="item1" src={props.item.photo ? props.item.photo : '/nopic.png'} alt =""/>
                     </Link>
                     </span>
         </div>

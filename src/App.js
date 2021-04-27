@@ -2,6 +2,7 @@ import './App.css';
 import IndexPage from './IndexPage'
 import IndexPageFurn from './IndexPageFurn'
 import Authorization from './Authorization'
+import Registration from './Registration'
 import LK from './LK'
 import Messages from './messages/Messages'
 import Message from './messages/Message'
@@ -18,9 +19,7 @@ import store from "./store/reducers"
 import {
   BrowserRouter,
   Route,
-  Switch,
-  Redirect,
-  withRouter
+  Switch
 } from "react-router-dom"
 
 
@@ -33,6 +32,7 @@ function App() {
         <Route exact path='/' component={IndexPage}/>
         <Route exact path='/furn' component={IndexPageFurn}/>
         <Route exact path='/auto' component={Authorization}/>
+        <Route exact path='/registration' component={Registration}/>
         <Route exact path='/lk' component={LK}/>
         <Route exact path='/messages' component={Messages}/>
         <Route exact path='/message_read' component={Message}/>

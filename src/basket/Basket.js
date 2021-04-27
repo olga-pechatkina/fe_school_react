@@ -10,6 +10,8 @@ const Basket = (props) =>  {
   const [commonPrice, setPrice] = useState(0);  
   const [orderReady, setorderReady] = useState(false);  
   const history = useHistory();
+  const mail = React.useRef();
+  const phone = React.useRef();
 
   let messagePath={
       pathname: '/'
@@ -35,8 +37,19 @@ const Basket = (props) =>  {
   });
 
   function makeanOrder() {
-    setorderReady(true);
+    if (mail.current.value || phone.current.value) {
+      setorderReady(true);
+    }
+  }
+
+  function goHome() {
     history.push(messagePath);
+  }
+
+  function checkPhone(ev){
+    if(isNaN(ev.key)){
+      ev.preventDefault();
+    }
   }
 
   return (
@@ -54,24 +67,35 @@ const Basket = (props) =>  {
         </div>
         <div className ="App-header__ins flex-column">
           <h3  style={{marginTop: "50px"}}>Общая информация</h3>
-          <div className ="flex-row">
-            <div style={{flexBasis: "60%"}}>Товары({commonCount})</div>
+          <div className ="flex-row" style={{margin: "10px 0px"}}>
+            <div style={{flexBasis: "30%"}}>Товары({commonCount})</div>
             <div style={{flexBasis: "40%"}}>{commonPrice}</div>
           </div>
-          <div className ="flex-row">
-            <div style={{flexBasis: "60%"}}>Доставка</div>
+          <div className ="flex-row" style={{margin: "10px 0px"}}>
+            <div style={{flexBasis: "30%"}}>Доставка</div>
             <div style={{flexBasis: "40%"}}>250</div>
           </div>
-          <div className ="flex-row">
-            <div style={{flexBasis: "60%"}}>Общая стоимость</div>  
+          <div className ="flex-row" style={{margin: "10px 0px"}}>
+            <div style={{flexBasis: "30%"}}>Общая стоимость</div>  
             <div style={{flexBasis: "40%"}}>{commonPrice+250}</div>
           </div>
-          <div className ="flex-row">
-            <input type="tel"  placeholder="Телефон" style={{marginRight: "10px"}}></input>  
-            <input type="email" placeholder="Почта" cols="40"></input>
+          <div className ="flex-row" style={{margin: "10px 0px"}}>
+            <input type="tel"
+              placeholder="Телефон"
+              style={{marginRight: "10px"}}
+              onKeyPress={checkPhone}
+              ref={phone}>
+            </input>  
+            <input type="email" placeholder="Почта" ref={mail}></input>
           </div>
-          <button type="button" className="btn-rubrics-mobile-view" onClick={makeanOrder}>Оформление заказа</button>
-          { orderReady && <div style={{marginTop: "6px"}}>Наши операторы свяжутся с вами для оформления заказа</div>}
+          <div className ="flex-row" style={{margin: "10px 0px"}}>
+            <button type="button" style={{margin: "10px 0px"}} className="btn-rubrics-mobile-view" onClick={makeanOrder}>Оформление заказа</button>
+            <button type="button" style={{margin: "10px 10px", width: "260px"}} className="btn-rubrics-mobile-view" onClick={()=>history.push('/auto')}>Регистрация и оформление заказа</button>
+          </div>
+          { orderReady && <div className ="flex-column" style={{margin: "10px 0px"}}>
+            <div style={{marginTop: "6px"}}>Наши операторы свяжутся с вами для оформления заказа</div>
+              <button type="button" style={{margin: "10px 0px"}} className="btn-rubrics-mobile-view" onClick={goHome}>На главную страницу</button>
+            </div>}
         </div>
     </div>
   )

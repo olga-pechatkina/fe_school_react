@@ -26,10 +26,10 @@ const BasketItem = (props) => {
         <div className = "item-container-list">
             <div className = "item-list">
             <span>         
-                <img className="item1-list" src={props.item.photo} alt =""/>
+                <img className="item1-list" src={props.item.photo ? props.item.photo : '/nopic.png'} alt =""/>
             </span>             
             </div>
-            <div className = "item-list_info-container">
+            <div className = "item-list_info-basket">
             <div className = "item-list_name"> {props.item.name} </div>
             <div className = "item-list__master-name"> {props.seller}</div>
             </div>
@@ -47,8 +47,8 @@ const BasketItem = (props) => {
     )
 }
 
-const mapDispatchToProps ={
+const mapDispatchToProps = {
     handleAction
-  }
+}
 
 export default connect (null, mapDispatchToProps)(BasketItem);

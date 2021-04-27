@@ -11,7 +11,7 @@ const ItemListView = (props) =>{
     <div className = "item-container-list">
         <div className = "item-list">
             <span>         
-                <img className="item1-list" src={props.item.photo} alt =""/>
+                <img className="item1-list" src={props.item.photo ? props.item.photo : '/nopic.png'} alt =""/>
             </span>              
         </div>
         <div className = "item-list_info-container">
