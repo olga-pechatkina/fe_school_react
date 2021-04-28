@@ -8,7 +8,10 @@ const Basket = (props) =>  {
   let basketItems= props.items.filter(it=> props.userBasket.find(el => el === it.id)!== undefined);
   const [commonCount, setCount] = useState(0);
   const [commonPrice, setPrice] = useState(0);  
-  const [orderReady, setorderReady] = useState(false);  
+  const [orderReady, setOrderReady] = useState(false);
+  const [dataError, setDataError] = useState(false);    
+  const [countError, setCountError] = useState(false);   
+  const [mailError, setMailError] = useState(false); 
   const history = useHistory();
   const mail = React.useRef();
   const phone = React.useRef();
@@ -37,9 +40,21 @@ const Basket = (props) =>  {
   });
 
   function makeanOrder() {
-    if (mail.current.value || phone.current.value) {
-      setorderReady(true);
+    setDataError(false);
+    setCountError(false);
+    setOrderReady(false);
+    setMailError(false);
+
+    if (!mail.current.value && !phone.current.value){
+      return setDataError(true);
     }
+    else if (commonCount===0) {
+      return setCountError(true);      
+    }
+    else if(!checkMail(mail.current.value) && !phone.current.value){
+      return setMailError(true);
+    } 
+    else setOrderReady(true);
   }
 
   function goHome() {
@@ -50,6 +65,11 @@ const Basket = (props) =>  {
     if(isNaN(ev.key)){
       ev.preventDefault();
     }
+  }
+
+  function checkMail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
   }
 
   return (
@@ -79,6 +99,7 @@ const Basket = (props) =>  {
             <div style={{flexBasis: "30%"}}>Общая стоимость</div>  
             <div style={{flexBasis: "40%"}}>{commonPrice+250}</div>
           </div>
+          <div style={{marginTop: "6px", fontSize: "12px"}}>Для оформления заказа заполните одно из полей для связи</div>
           <div className ="flex-row" style={{margin: "10px 0px"}}>
             <input type="tel"
               placeholder="Телефон"
@@ -88,9 +109,22 @@ const Basket = (props) =>  {
             </input>  
             <input type="email" placeholder="Почта" ref={mail}></input>
           </div>
+          {dataError && !orderReady && <p style={{color:"red"}}>Ни одно из полей не заполнено</p>}
+          {countError && !orderReady && <p style={{color:"red"}}>Не выбран ни один товар</p>}   
+          {mailError  && !orderReady && <p style={{color:"red"}}>Неверный формат почты</p>}   
           <div className ="flex-row" style={{margin: "10px 0px"}}>
-            <button type="button" style={{margin: "10px 0px"}} className="btn-rubrics-mobile-view" onClick={makeanOrder}>Оформление заказа</button>
-            <button type="button" style={{margin: "10px 10px", width: "260px"}} className="btn-rubrics-mobile-view" onClick={()=>history.push('/auto')}>Регистрация и оформление заказа</button>
+            <button type="button"
+              style={{margin: "10px 0px"}}
+              className="btn-rubrics-mobile-view"
+              onClick={makeanOrder}
+              disabled={orderReady}
+            >Оформление заказа</button>
+            <button type="button"
+              style={{margin: "10px 10px", width: "260px"}}
+              className="btn-rubrics-mobile-view"
+              onClick={()=>history.push('/auto')}
+              disabled={orderReady}
+            >Регистрация и оформление заказа</button>
           </div>
           { orderReady && <div className ="flex-column" style={{margin: "10px 0px"}}>
             <div style={{marginTop: "6px"}}>Наши операторы свяжутся с вами для оформления заказа</div>

@@ -1,11 +1,11 @@
 const initialState = {
-    userIsSeller: true,
+    userIsSeller: false,
     userName:'Петр Петрович',
     userCity:'Санкт-Петербург',
     userToken:'',
     userFavorites:[1, 5, 7, 10],
     userItems:[2, 8, 3, 11],
-    userBasket:[4, 6, 12, 12],
+    userBasket:[],
     userMessages:[{
       id: 1,
       date: "13 марта",
@@ -46,6 +46,8 @@ const initialState = {
       case 'SET_TOKEN' :
         let token = action.payload;
         return {...state, userToken: token}
+        case 'SET_SELLER' :
+          return {...state, userIsSeller: true}
       default:
        return state
      }

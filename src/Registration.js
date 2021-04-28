@@ -1,19 +1,26 @@
 import { Link } from 'react-router-dom'
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 const Registration = () =>  {
     const history = useHistory();
 
     const name = React.useRef();
     const password = React.useRef();
+
+    const [regError, setregError] = useState(false);
     
     let messagePath={
         pathname: '/auto'
       }
 
     function Enter(){
-        history.push(messagePath);
+        return axios.post("http://localhost:3001/new_user", {username: name.current.value,
+        password: password.current.value}).then((data)=>{
+            history.push(messagePath);
+        })
+        .catch(()=>setregError(true));
     }
 
 return (
@@ -31,10 +38,8 @@ return (
             <div className = "auth-row">
                 <input className = "auth-input" type = "password" placeholder = "Пароль" ref={password}/>
             </div>
-            <div className = "auth-row">
-                <label><input type = "checkbox" ref={password}/>Я-продавец</label>
-            </div>
             <button type="button" className="btn-rubrics-mobile-view" onClick={Enter}>Регистрация</button>
+            {regError && <p style={{color:"red"}}>Пользователь с таким именем уже существует</p>}
         </div>
     </div>
   )

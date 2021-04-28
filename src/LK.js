@@ -18,6 +18,9 @@ const LK = (props) =>  {
     setEditable(!_editable);
   }
 
+  function beSeller(){
+    props.handleAction("SET_SELLER", null);
+  }
 
   return(
   <div className="LK">
@@ -66,7 +69,10 @@ const LK = (props) =>  {
               suppressContentEditableWarning contentEditable={_editable} ref={userCity}>{props.userCity}</div>                
         </div>
         <hr className = "line"/>
-        <button className = {_editable ? "item-block__save_lk" : "item-block__edit_lk"} title = "Редактировать" onClick={editData}/>
+        <div className ="flex-row">
+          <button className = {_editable ? "item-block__save_lk" : "item-block__edit_lk"} title = "Редактировать" onClick={editData}/>
+          {!props.userIsSeller && <button type="button" className="btn-rubrics-mobile-view" onClick={beSeller}>Хочу продавать</button>}
+        </div>
     </div>
   </div>
   )

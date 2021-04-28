@@ -23,7 +23,7 @@ const ItemBlockView = (props) =>{
                     </Link>
                     </span>
         </div>
-        {!props.inFav && <FavButton classN = "item-block__favorite"  onClick={() => addToFav(props.item.id)}/>}
+        {!props.inFav && props.token && <FavButton classN = "item-block__favorite"  onClick={() => addToFav(props.item.id)}/>}
         <div className = "item-block__info-container">
             <div className = "item-block__name"> {props.item.name} </div>
             <Link to={'./seller/' + props.item.sellerId}>
@@ -44,6 +44,11 @@ const ItemBlockView = (props) =>{
 const mapDispatchToProps ={
     handleAction
   }
-  
 
-export default connect (null, mapDispatchToProps)(ItemBlockView);
+  const mapStateToProps = state => {
+    return {
+        token: state.user.userToken
+    }
+  }
+  
+export default connect (mapStateToProps, mapDispatchToProps, null)(ItemBlockView);

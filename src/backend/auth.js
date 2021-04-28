@@ -22,7 +22,7 @@ app.options('*', (req, res) => {
     res.send('ok');
 });
 
-const users = [
+let users = [
 {
     username: 'petr',
     password: 'petr',
@@ -51,6 +51,19 @@ app.post('/login', (req, res) => {
     } else {
         res.status(500).send(`Username or password incorrect`);
     }
+});
+
+app.post('/new_user', (req, res) => {
+    const { username, password } = req.body;
+
+    const userExists = users.find(u => { return u.username === username});
+    if (!userExists) {
+        users.push(req.body);
+        console.log(users[0], users[1], users[2])
+        res.status(200).send(`User was registered`);
+    } else res.status(500).send(`User already exists`);
+
+
 });
 
 app.post('/token', (req, res) => {
