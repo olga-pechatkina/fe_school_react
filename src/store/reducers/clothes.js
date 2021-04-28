@@ -141,7 +141,7 @@ export const initialState = {
       tempItems = tempItems.filter(item => item.photo);
     }
     if (filters['price'].length === 2){
-      tempItems = tempItems.filter(item => item.price > filters['price'][0] && item.price < filters['price'][1]);
+      tempItems = tempItems.filter(item => item.price >= filters['price'][0] && item.price <= filters['price'][1]);
     }
     return tempItems
   }

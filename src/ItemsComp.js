@@ -12,7 +12,7 @@ const ItemsComp = (props) =>   {
                 <h1>{props.header}</h1>
             </div>
             <div className = "all-items-block-favorites">
-            {props.items.map((item, index) => (
+            {props.items?.map((item, index) => (
                 <Item item={item} editable={props.editable} key={index.toString() + '--' + index} onChange = {props.onChange}/>
             ))}
             </div>

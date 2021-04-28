@@ -30,7 +30,7 @@ const Seller = (props) =>  {
           </ul>
         </div>  
         <div style={{top: "5px", position: "relative", textAlign: "right"}}>
-          <ButtonMessage seller={seller}/>
+        {props.token && <ButtonMessage seller={seller}/>}
         </div>
       </div>
       <div className = "info-LK">
@@ -51,7 +51,8 @@ const Seller = (props) =>  {
 
     const mapStateToProps = state => {
       return {
-        sellers: [...state.clothes.sellers,...state.furniture.sellers]
+        sellers: [...state.clothes.sellers,...state.furniture.sellers],
+        token: state.user.userToken
       }
     }
     

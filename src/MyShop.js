@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleAction } from "./store/actions/index"
 
 const MyShop  = (props) =>  {
-  const items = props.items.filter(it=> props.userItems.find(el => el === it.id)!== undefined)
+  const items = props.userItems ? props.items.filter(it=> props.userItems.find(el => el === it.id)!== undefined) : null
 
   function _changeItems(id){ 
     props.handleAction("REMOVE_ITEM", id);

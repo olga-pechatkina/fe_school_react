@@ -1,13 +1,23 @@
 import React from "react";
 import FavButton from './FavButton'
+import BasketButton from './BasketButton'
 import { connect } from 'react-redux'
 import { handleAction } from "./../store/actions/index"
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const ItemListView = (props) =>{
+    const history = useHistory();
+
     function addToFav(id){
         props.handleAction("ADD_TO_FAV", id);
     }
+    
+    function addToBasket(id){
+        props.handleAction("ADD_TO_BASKET", id);
+        history.push('/basket');
+    }  
+
     return (
     <div className = "item-container-list">
         <div className = "item-list">
@@ -28,7 +38,7 @@ const ItemListView = (props) =>{
             <div className = "item-list__cost">
                 <div className="item-list__basketblock">
                     {!props.inFav && props.token && <FavButton classN = "item-list__favorite" onClick={() => addToFav(props.item.id)}/>}
-                    <button className="item-list__to-basket" title="Положить в корзину товар">В корзину</button>
+                    <BasketButton classN = "item-list__to-basket" onClick={() => addToBasket(props.item.id)}/>
                 </div>
             </div>
         </div>

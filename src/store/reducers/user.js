@@ -1,9 +1,11 @@
+import { Buyer } from './user2data.js'
+
 const initialState = {
-    userIsSeller: false,
+    userIsSeller: true,
     userName:'Петр Петрович',
     userCity:'Санкт-Петербург',
     userToken:'',
-    userFavorites:[1, 5, 7, 10],
+    userFavorites:[],
     userItems:[2, 8, 3, 11],
     userBasket:[],
     userMessages:[{
@@ -48,6 +50,12 @@ const initialState = {
         return {...state, userToken: token}
         case 'SET_SELLER' :
           return {...state, userIsSeller: true}
+        case 'CHANGE_USER' :
+          if (action.payload === "buyer"){
+            let user = Object.assign(Buyer);
+            return user;
+          }
+          return initialState;
       default:
        return state
      }

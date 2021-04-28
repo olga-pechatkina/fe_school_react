@@ -26,9 +26,6 @@ let users = [
 {
     username: 'petr',
     password: 'petr',
-}, {
-    username: 'anna',
-    password: 'password123member',
 }
 ];
 

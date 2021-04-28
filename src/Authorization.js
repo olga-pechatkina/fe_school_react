@@ -19,6 +19,7 @@ const Authorization = (props) =>  {
     function Enter(){
         return axios.post("http://localhost:3001/login", {username: name.current.value,
             password: password.current.value}).then((data)=>{
+                props.handleAction("CHANGE_USER", name.current.value);
                 history.push(messagePath);
                 props.handleAction("SET_TOKEN", data.data.accessToken);
             })

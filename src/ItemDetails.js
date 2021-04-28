@@ -2,13 +2,16 @@ import { connect } from 'react-redux'
 import ButtonMessage from "./ButtonMessage"
 import {Link} from 'react-router-dom'
 import { handleAction } from "./store/actions/index"
+import { useHistory } from "react-router-dom";
 
 const ItemDetails = (props) => {
   const item = props.items.find(it => it.id === +props.match.params.id);
   const seller = props.sellers.find(el => el.id === item?.sellerId);
+  const history = useHistory();
 
   function addToBasket(){
     props.handleAction("ADD_TO_BASKET", item.id);
+    history.push('/basket');
   }
 
   return (
@@ -37,7 +40,7 @@ const ItemDetails = (props) => {
         </div>  
         <div style={{top: "5px", position: "relative", textAlign: "right"}}>
           <button type="button" className="btn-rubrics-mobile-view_seller" onClick={addToBasket} style={{marginRight: "10px"}}>Добавить в корзину</button>
-          <ButtonMessage seller ={seller}/>
+          {props.token && <ButtonMessage seller ={seller}/>}
         </div>
       </div>
       <span>
@@ -72,6 +75,7 @@ const mapStateToProps = state => {
   return {
       items: [...state.clothes.items, ...state.furniture.items],
       sellers: [...state.clothes.sellers, ...state.furniture.sellers],
+      token: state.user.userToken
   }
 }
 

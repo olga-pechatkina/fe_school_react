@@ -2,10 +2,12 @@ import { connect } from 'react-redux'
 import { handleAction } from "./store/actions/index"
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const LK = (props) =>  {
 
   const [_editable, setEditable] = useState(false);
+  const history = useHistory();
 
   const userName = React.useRef();
   const userCity = React.useRef(); 
@@ -21,6 +23,12 @@ const LK = (props) =>  {
   function beSeller(){
     props.handleAction("SET_SELLER", null);
   }
+
+  function Logout(){
+    props.handleAction("SET_TOKEN", null);
+    history.push('/');
+}
+
 
   return(
   <div className="LK">
@@ -53,8 +61,9 @@ const LK = (props) =>  {
           {props.userIsSeller && <button type="button" className="btn-rubrics-mobile-view">Мой магазин</button>}
         </Link>
         <Link to="/messages">
-          <button type="button" className="btn-rubrics-mobile-view">Мои сообщения</button>
+          <button type="button" className="btn-rubrics-mobile-view" style={{margin:"0px 5px"}}>Мои сообщения</button>
         </Link>
+        <button type="button" className="btn-rubrics-mobile-view" onClick={Logout}>Выход</button>        
       </div>
     <div className = "info-LK">
         <div className = "info-LK-item">

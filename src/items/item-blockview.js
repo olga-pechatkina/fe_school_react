@@ -4,8 +4,11 @@ import BasketButton from './BasketButton'
 import { connect } from 'react-redux'
 import { handleAction } from "./../store/actions/index"
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const ItemBlockView = (props) =>{
+
+    const history = useHistory();
 
     function addToFav(id){
         props.handleAction("ADD_TO_FAV", id);
@@ -13,6 +16,7 @@ const ItemBlockView = (props) =>{
 
     function addToBasket(id){
         props.handleAction("ADD_TO_BASKET", id);
+        history.push('/basket');
     }   
 
     return <div className = "item-container">
