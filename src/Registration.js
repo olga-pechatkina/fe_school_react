@@ -44,7 +44,7 @@ return (
             <button type="button" className="btn-rubrics-mobile-view" onClick={Enter}>Регистрация</button>
             {regError && <p style={{color:"red"}}>Пользователь с таким именем уже существует</p>}
         </div>
-        {isLoading && <div className="spinner"></div>}
+        {isLoading && <div className="spinner"/>}
     </div>
   )
 }

@@ -52,4 +52,5 @@ const Message = (props) =>  {
     }
     
     export default connect(mapStateToProps, null)(Message);
+    export {Message};
   

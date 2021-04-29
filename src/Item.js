@@ -26,7 +26,6 @@ const Item = (props) => {
         </div>
         {props.editable && <button className = "item-block__edit" title = "Редактировать" onClick={() => setEditable(!_editable)}/>}
 
-        {/*  а вот этот кусок желательно сделать компонентом, который тебе нужно радактировать и сохранять */}
         <div className = "item-block__info-container">
             <div className = {_editable ? "item-block__name--editable" : "item-block__name" }
                 suppressContentEditableWarning contentEditable={_editable} ref={name}>{props.item.name}</div>

@@ -48,14 +48,14 @@ const initialState = {
       case 'SET_TOKEN' :
         let token = action.payload;
         return {...state, userToken: token}
-        case 'SET_SELLER' :
-          return {...state, userIsSeller: true}
-        case 'CHANGE_USER' :
-          if (action.payload === "buyer"){
-            let user = Object.assign(Buyer);
-            return user;
-          }
-          return initialState;
+      case 'SET_SELLER' :
+        return {...state, userIsSeller: true}
+      case 'CHANGE_USER' :
+        if (action.payload === "buyer"){
+          let user = Object.assign(Buyer);
+          return user;
+        }
+        return initialState;
       default:
        return state
      }

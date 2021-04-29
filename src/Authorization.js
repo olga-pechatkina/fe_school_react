@@ -68,7 +68,7 @@ return (
             <p>Вы уже вошли как {props.userName}</p>
             <button type="button" className="btn-rubrics-mobile-view" onClick={Logout}>Выйти</button>
         </div>}
-        {isLoading && <div className="spinner"></div>}
+        {isLoading && <div className="spinner"/>}
     </div>
   )
 }
