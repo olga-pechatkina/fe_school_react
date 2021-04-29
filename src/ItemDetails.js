@@ -11,7 +11,6 @@ const ItemDetails = (props) => {
 
   function addToBasket(){
     props.handleAction("ADD_TO_BASKET", item.id);
-    history.push('/basket');
   }
 
   return (

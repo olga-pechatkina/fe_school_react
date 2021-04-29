@@ -15,7 +15,6 @@ const ItemListView = (props) =>{
     
     function addToBasket(id){
         props.handleAction("ADD_TO_BASKET", id);
-        history.push('/basket');
     }  
 
     return (

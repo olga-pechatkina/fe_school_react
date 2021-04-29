@@ -11,19 +11,22 @@ const Authorization = (props) =>  {
     const name = React.useRef();
     const password = React.useRef();
     const [loginError, setloginError] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     
     let messagePath={
         pathname: '/'
       }
 
     function Enter(){
+        setLoading(true);
         return axios.post("http://localhost:3001/login", {username: name.current.value,
             password: password.current.value}).then((data)=>{
                 props.handleAction("CHANGE_USER", name.current.value);
                 history.push(messagePath);
                 props.handleAction("SET_TOKEN", data.data.accessToken);
             })
-            .catch(()=>setloginError(true));
+            .catch(()=>setloginError(true))
+            .finally(()=>setLoading(false));
     }
 
     function Register(){
@@ -65,6 +68,7 @@ return (
             <p>Вы уже вошли как {props.userName}</p>
             <button type="button" className="btn-rubrics-mobile-view" onClick={Logout}>Выйти</button>
         </div>}
+        {isLoading && <div className="spinner"></div>}
     </div>
   )
 }

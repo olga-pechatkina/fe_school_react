@@ -10,17 +10,20 @@ const Registration = () =>  {
     const password = React.useRef();
 
     const [regError, setregError] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     
     let messagePath={
         pathname: '/auto'
       }
 
     function Enter(){
+        setLoading(true);
         return axios.post("http://localhost:3001/new_user", {username: name.current.value,
         password: password.current.value}).then((data)=>{
             history.push(messagePath);
         })
-        .catch(()=>setregError(true));
+        .catch(()=>setregError(true))
+        .finally(()=>setLoading(false));
     }
 
 return (
@@ -41,6 +44,7 @@ return (
             <button type="button" className="btn-rubrics-mobile-view" onClick={Enter}>Регистрация</button>
             {regError && <p style={{color:"red"}}>Пользователь с таким именем уже существует</p>}
         </div>
+        {isLoading && <div className="spinner"></div>}
     </div>
   )
 }
