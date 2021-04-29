@@ -11,7 +11,7 @@ const FilterItemFromTo = (props) => {
         let obj = [];
         obj[0] = +from.current.value;
         obj[1] = +to.current.value;
-        if (obj[0] && obj[1]){
+        if (obj[0]!== '' && obj[1]!== ''){
             return props.objChanged(obj)
         }
     } 
@@ -27,7 +27,7 @@ const FilterItemFromTo = (props) => {
                    <input type="text" style={{ width: "50px"}} 
                         onBlur={changed} 
                         ref={from} 
-                        value={from_value}>
+                        defaultValue={from_value}>
                    </input>
                 </div>
                 <div className = "flex-column" style={{marginLeft: "10px"}}>
@@ -36,7 +36,7 @@ const FilterItemFromTo = (props) => {
                         style={{ width: "50px"}} 
                         onBlur={changed}
                         ref={to} 
-                        value={to_value}>
+                        defaultValue={to_value}>
                    </input>
                 </div>
             </div>

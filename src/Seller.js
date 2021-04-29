@@ -14,11 +14,11 @@ const Seller = (props) =>  {
         <div className = "header-usermenu">
           <ul className = "header__nav-list">
             <div className = "profile header__nav-block">
-              <div className = "header-btn-entry">
+            {props.token && <div className = "header-btn-entry">
                 <Link to="/favorites">
                     <span className = "item-lk__favorite"/>
                 </Link>
-              </div>
+              </div>}
             </div>
             <li className = "header__nav-item">
               <div className = "header-basket">
